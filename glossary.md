@@ -74,7 +74,44 @@ ipcRenderer.send('asynchronous-message', 'ping');
 
 Electron 支持了原生的 Node 模块，但是 Electron 非常可能安装一个不一样的 V8 引擎通过 Node 二进制编码，所以在打包原生模块的时候你需要在  指定具体的 Electron 本地头文件。 
 
-参见： [Using Native Node Modules].
+如下三种方法教你安装原生模块：
+最简单方式
+
+最简单的方式就是通过 electron-rebuild 包重新编译原生模块，它帮你自动完成了下载 headers、编译原生模块等步骤：
+```
+npm install --save-dev electron-rebuild
+```
+# 每次运行"npm install"时，也运行这条命令
+```
+./node_modules/.bin/electron-rebuild
+```
+# 在windows下如果上述命令遇到了问题，尝试这个：
+```
+.\node_modules\.bin\electron-rebuild.cmd
+```
+通过 npm 安装
+
+你当然也可以通过 npm 安装原生模块。大部分步骤和安装普通模块时一样，除了以下一些系统环境变量你需要自己操作：
+```
+export npm_config_disturl=https://atom.io/download/atom-shell
+export npm_config_target=0.33.1
+export npm_config_arch=x64
+export npm_config_runtime=electron
+HOME=~/.electron-gyp npm install module-name
+```
+通过 node-gyp 安装
+
+你需要告诉 node-gyp 去哪下载 Electron 的 headers，以及下载什么版本：
+```
+$ cd /path-to-module/
+$ HOME=~/.electron-gyp node-gyp rebuild --target=0.29.1 --arch=x64 --dist-url=https://atom.io/download/atom-shell
+```
+HOME=~/.electron-gyp 设置去哪找开发时的 headers。
+
+--target=0.29.1 设置了 Electron 的版本
+
+--dist-url=... 设置了 Electron 的 headers 的下载地址
+--arch=x64 设置了该模块为适配64位操作系统而编译
 
 ## NSIS
 
