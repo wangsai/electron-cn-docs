@@ -81,11 +81,11 @@ Electron 支持了原生的 Node 模块，但是 Electron 非常可能安装一�
 ```
 npm install --save-dev electron-rebuild
 ```
-# 每次运行"npm install"时，也运行这条命令
+每次运行"npm install"时，也运行这条命令：
 ```
 ./node_modules/.bin/electron-rebuild
 ```
-# 在windows下如果上述命令遇到了问题，尝试这个：
+在windows下如果上述命令遇到了问题，尝试这个：
 ```
 .\node_modules\.bin\electron-rebuild.cmd
 ```
