@@ -6,8 +6,14 @@
 
 ASAR 代表了 Atom Shell Archive Format。一个 [asar][asar] 压缩包就是一个简单的 `tar` 文件-就像将那些有联系的文件格式化至一个单独的文件中。Electron 能够任意读取其中的文件并且不需要解压缩整个文件。
 
-ASAR 格式主要是为了提升 Windows 平台上的性能。TODO
+注:[这里](https://github.com/electron/asar)详尽的解释了asar的使用方法,在Electron中通常使用它进行将APP文档打包在一个.asar中,防止js,html,css等文件直接暴露在外,显得很LOW.
 
+简单例子:
+```
+安装:$ npm install asar -g
+压缩:$ asar pack app app.asar
+解压:$ asar extract app.asar testpath
+```
 ### Brightray
 
 [Brightray][brightray] 是能够简单的将 [libchromiumcontent] 应用到应用中的一个静态库。它是专门开发给 Electron 使用，但是也能够使用在那些没有基于 Electron 的原生应用来启用 Chromium 的渲染引擎。
@@ -22,6 +28,30 @@ Brightray 是 Electron 中的一个低级别的依赖，大部分的 Electron �
 
 IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在 [主进程] 和 [渲染进程] 之间传递 JSON 信息。
 
+注:主进程与渲染进程的ipc通信例子:
+
+```
+//主进程中ipcMain监听(on)了事件asynchronous-message并传回给渲染层中的asynchronous-reply.
+const ipcMain = require('electron').ipcMain;
+ipcMain.on('asynchronous-message', function(event, arg) {
+  console.log(arg);  // prints "ping"
+  event.sender.send('asynchronous-reply', 'pong');
+});
+
+ipcMain.on('synchronous-message', function(event, arg) {
+  console.log(arg);  // prints "ping"
+  event.returnValue = 'pong';
+});
+// 渲染进程中发送(send)了ping给asynchronous-message并监听了asynchronous-reply.
+const ipcRenderer = require('electron').ipcRenderer;
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')); // prints "pong"
+
+ipcRenderer.on('asynchronous-reply', function(event, arg) {
+  console.log(arg); // prints "pong"
+});
+ipcRenderer.send('asynchronous-message', 'ping');
+
+```
 ### libchromiumcontent
 
 一个单独的开源库，包含了 Chromium 的模块以及全部依赖（比如 Blink, [V8] 等）。
