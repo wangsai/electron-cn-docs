@@ -92,8 +92,8 @@ child.once('ready-to-show',()=> {
 * `options`Object(可选)
 * `width` Integer(可选) - 窗口的宽度(以像素为单位)。默认值为"800"。
 * `height` Integer(可选) - 窗口的高度(以像素为单位)。默认值为"600"。
-* `x` Integer(可选)(**如果使用y,则为**) - 窗口的左偏移距屏幕。默认是将窗口居中。
-* `y`Integer(可选)(**必需**如果使用x) - 窗口的顶部偏移距屏幕。默认是将窗口居中。
+* `x` Integer(可选) - 窗口的左偏移距屏幕。默认是将窗口居中。
+* `y`Integer(可选) - 窗口的顶部偏移距屏幕。默认是将窗口居中。
 * `useContentSize` Boolean(可选) - 是否采用内容宽高为当前窗口的宽高 。
     默认值为   `false`  。
 * `center` Boolean(可选) - 在屏幕中心显示窗口。
