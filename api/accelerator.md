@@ -1,8 +1,5 @@
-# 本文介绍
-
-快捷键字符串,多个则采用 `+` 连接
-
-例如：
+# 快捷键字符串
+多个则采用 `+` 连接,例如：
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
