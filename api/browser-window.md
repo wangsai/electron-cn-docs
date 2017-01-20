@@ -300,13 +300,13 @@ window.onbeforeunload =(e)=> {
 ####事件：'ready-to-show'
 网页即将呈现时触发
 
-####事件："最大化"
+####事件："maximize"
 窗口最大化时触发。
 
 ####事件：'unmaximize'
 当窗口从最大化状态退出时触发。
 
-####事件：'最小化'
+####事件：'minimize'
 窗口最小化时触发。
 
 ####事件：'restore'
@@ -317,7 +317,7 @@ window.onbeforeunload =(e)=> {
 
 ####事件：'move'
 窗口移动到新位置时触发。
-__Note__：在macOS上,此事件只是"moved"的别名。
+ **注意:** 在macOS上,此事件只是"moved"的别名。
 
 ####事件：'moved'_macOS_
 当窗口移动到新位置时触发一次。
