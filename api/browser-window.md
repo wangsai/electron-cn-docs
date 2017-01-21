@@ -1,4 +1,5 @@
-# 本文介绍:窗口的创建与控制
+# 本文介绍:应用窗口的创建与控制
+
 ```javascript
 // In the main process.
 const {BrowserWindow} = require('electron')
