@@ -1,4 +1,4 @@
-# 本文介绍:自动更新应用
+# 自动更新应用
 `autoUpdater` 模块基于[Squirrel](https://github.com/Squirrel)更新框架.
 率属进程: [Main](../glossary.md#main-process)
 
