@@ -1,5 +1,5 @@
 # 本文介绍:快捷键字符串
-使用[`globalShortcut`](global-shortcut.md)中的[`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback)绑定快捷键.
+>使用[`globalShortcut`](global-shortcut.md)中的[`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback)绑定快捷键.
 
 # 快捷键字符串
 

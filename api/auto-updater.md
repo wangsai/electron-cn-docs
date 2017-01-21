@@ -1,6 +1,6 @@
-# 自动更新应用
-`autoUpdater` 模块基于[Squirrel](https://github.com/Squirrel)更新框架.
-率属进程: [Main](../glossary.md#main-process)
+# 本文介绍:自动更新应用
+> `autoUpdater` 模块基于[Squirrel](https://github.com/Squirrel)更新框架.
+进程: [Main](../glossary.md#main-process)
 
 ## 现有的项目
 - [nuts][nuts]: *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
