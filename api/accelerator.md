@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 # 本文介绍:快捷键字符串
-
 使用[`globalShortcut`](global-shortcut.md)中的[`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback)绑定快捷键.
 
-=======
 # 快捷键字符串
->>>>>>> origin/master
+
 多个则采用 `+` 连接,例如：
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`

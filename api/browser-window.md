@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 # 本文介绍:应用窗口的创建与控制
 
-=======
 # 窗口的创建与控制
->>>>>>> origin/master
+
 ```javascript
 // In the main process.
 const {BrowserWindow} = require('electron')

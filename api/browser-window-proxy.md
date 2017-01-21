@@ -1,9 +1,6 @@
 ##类：BrowserWindowProxy
-
 >操纵子窗口
-
 率属进程：[Renderer](../ glossary.md＃renderer-process)
-
 当在界面中使用 `window.open` 来创建一个新的窗口时候，将会创建一个 `BrowserWindowProxy`  的实例，并且将返回一个标识，这个界面通过标识来对这个新的窗口进行有限的控制.
 
 ###实例方法
