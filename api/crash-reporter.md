@@ -1,7 +1,8 @@
 # 本文介绍:crashReporter类
+
 > 提交应用奔溃报告
 
-进程: [主进程](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+进程: [主进程](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process) 
 
 下面是一个自动提交崩溃报告给服务器的例子 :
 

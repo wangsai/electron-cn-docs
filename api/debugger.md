@@ -1,5 +1,7 @@
 # 本文介绍: Debugger类
+
 > 一个Chrome的远程调试协议的替代传输。
+
 进程: [主进程](../glossary.md#main-process)
 
 JavaScript运行后,使用Chrome调试工具中的[special binding][rdp]与页面交互和检测它们.

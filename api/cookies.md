@@ -1,25 +1,19 @@
 # 本文介绍:Cookies类
-> 会话(cookie)查询与修改操作类
 
-进程: [主进程](../glossary.md#main-process) 
+> 会话(cookie)查询与修改操作类 
 
-通过使用 `cookies`属性来访问 `Cookies` 类的实例
-一个 `Session`。
+进程: [主进程](../glossary.md#main-process).      
 
-例如：
 ```javascript
 const {session} = require('electron')
-
 //查询所有Cookie。
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
-
 //查询与特定网址相关联的所有Cookie。
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
   console.log(error, cookies)
 })
-
 //设置具有给定Cookie数据的Cookie;
 //如果存在相同的Cookie,则覆盖。
 const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
@@ -27,7 +21,6 @@ session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
 ```
-
 ##实例事件
 
 #### 事件: 'changed'

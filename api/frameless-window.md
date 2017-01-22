@@ -1,4 +1,5 @@
 # 本文介绍:无边框窗口的应用与操作
+
 > 打造一个没有工具栏或边框仅纯内容的chrome窗口.
 
 无边框窗口指的是不包含除页面本身以外任何其它可视部分的窗口([chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome))。

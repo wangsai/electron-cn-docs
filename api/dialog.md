@@ -3,6 +3,7 @@
 > 例如打开或保存文件等对话框
 
 进程: [主进程](../glossary.md#main-process) 
+
 对话框例子，展示了选择文件和目录:
 ```javascript
 const {dialog} = require('electron')

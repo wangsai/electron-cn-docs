@@ -1,6 +1,6 @@
 # 本文介绍:支持的 Chrome 命令行开关
 
->下文列出了Chrome浏览器和Electron支持的命令行开关. 你也可以在[app][app]模块的[ready][ready]事件发出之前使用
+>下文列出了Chrome浏览器和Electron支持的命令行开关. 你也可以在[app][app]模块的[ready][ready]事件之前使用
 [app.commandLine.appendSwitch][append-switch] 来添加它们到你应用的main脚本里面:
 
 ```javascript
