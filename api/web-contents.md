@@ -66,10 +66,10 @@ console.log(webContents)
 当一个 frame窗口 完成导航时触发
 
 #### 事件: 'did-start-loading'
-即选项卡中的微调框(spinner)开始旋转(loading)时触发
+选项卡中的微调框(spinner)开始旋转(loading)时触发
 
 #### 事件: 'did-stop-loading'
-即选项卡中的微调框(spinner)结束了旋转(loading)时触发
+选项卡中的微调框(spinner)结束了旋转(loading)时触发
 
 #### 事件: 'did-get-response-details'
 
@@ -110,7 +110,7 @@ console.log(webContents)
 #### 事件: 'page-favicon-updated'
 返回:
 * `event` Event
-* `favicons` String[] - Array of URLs
+* `favicons` String[] - URL数组
 
 网页接收到(图标的url)favicon url时触发
 
@@ -160,8 +160,7 @@ console.log(webContents)
 * `event` Event
 * `url` String
 * `isMainFrame` Boolean
-
- **页内跳转(虽然页面的url已改变但它不会跳出界面,如点击了锚链接 或 DOM的`hashchange`事件被触发时)时触发.**
+ **页内跳转时触发(虽然页面的url已改变但它不会跳出界面,如点击了锚链接 或 DOM的`hashchange`事件被触发时)**
 
 #### 事件: 'crashed'
 返回:
@@ -409,8 +408,9 @@ win.loadURL('http://github.com')
   * `extraHeaders` String (可选) - 用`\ n`分隔的额外头
   * `postData` ([UploadRawData](structures/upload-raw-data.md) | [UploadFile](structures/upload-file.md) | [UploadFileSystem](structures/upload-file-system.md) | [UploadBlob](structures/upload-blob.md))[] - (可选)
 
- **作用:在窗口中加载 `url`**
+ **作用:加载 `url`到窗口中** 
  `url` 必须包含协议前缀,比如 `http://` 或 `file://`. 如果加载想要忽略 http 缓存，请使用 `pragma` 头实现..
+ 
 ```javascript
 const {webContents} = require('electron')
 const options = {extraHeaders: 'pragma: no-cache\n'}
@@ -460,7 +460,7 @@ console.log(currentURL)
 重新加载当前网页。
 
 ####`contents.reloadIgnoringCache()`
-重新加载当前页面并忽略缓存。
+忽略缓存的重新加载当前 guest page。
 
 ####`content.canGoBack()`
 返回 `Boolean`  - 浏览器是否可以可后退至上个网页。
@@ -490,11 +490,11 @@ console.log(currentURL)
 从 当前页 到指定 `offset`的偏移量。
 
 ####`contents.isCrashed()`
-返回`Boolean`  - 渲染器进程是否崩溃。
+返回 `Boolean`  - 渲染器进程是否崩溃。
 
 ####`contents.setUserAgent(userAgent)`
 * `userAgent` String
-重新并覆盖此网页的userAgent。
+重定义此网页的userAgent。
 
 ####`contents.getUserAgent()`
 返回 `String`  - 此网页的userAgent信息
@@ -505,7 +505,7 @@ console.log(currentURL)
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 * `code` String
-* `userGesture` Boolean (可选)
+* `userGesture` Boolean (可选)  - 是否支持用户手势 默认为 `false`.
 * `callback` Function (可选) - script脚本执行后调用
   * `result` Any
 返回 `Promise` - 是否可解析执行代码 `code`

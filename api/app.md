@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
  **当应用程序完成基础的启动的时候被触发**
  在 Windows 和 Linux 中，`will-finish-launching` 事件与 `ready` 事件是相同的； 在 macOS 中，
 这个事件相当于 `NSApplication` 中的 `applicationWillFinishLaunching` 提示。
-你应该经常在这里为 `open-file` 和 `open-url` 设置监听器，并启动崩溃报告和自动更新。
+通常用于启动崩溃报告和自动更新等在这里为 `open-file` 和 `open-url` 设置监听器。
 
 在大多数的情况下，你应该只在 `ready` 事件处理器中完成所有的业务。
 
@@ -102,19 +102,19 @@ Electron 将会先尝试关闭所有的窗口再触发 `will-quit` 事件，在�
 返回：
 * `event` Event
 * `window` BrowserWindow
- **当一个 [BrowserWindow](browser-window.md) 失去焦点的时候触发**
+ **当[BrowserWindow](browser-window.md) 失去焦点的时候触发**
 
 ### 事件：'browser-window-focus'
 返回：
 * `event` Event
 * `window` BrowserWindow
- **当一个 [BrowserWindow](browser-window.md) 获得焦点的时候触发**
+ **当[BrowserWindow](browser-window.md) 获得焦点的时候触发**
 
 ### 事件：'browser-window-created'
 返回：
 * `event` Event
 * `window` BrowserWindow
- **当一个 [BrowserWindow](browser-window.md) 被创建的时候触发**
+ **当[BrowserWindow](browser-window.md) 被创建的时候触发**
 
 ### 事件: 'web-contents-created'
 返回：
@@ -160,8 +160,8 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
   * `issuerName` String - 发行者的公有名称
 * `callback` Function
   * `certificate` [Certificate](structures/certificate.md) (可选)
- **当一个客户端认证被请求的时候被触发**
-`url` 指的是请求客户端认证的网页地址，调用 `callback` 时需要传入一个证书列表中的证书。
+ **当客户端认证被请求的时候被触发**
+`url` 指的是请求客户端认证的网页地址，调用 `callback` 时需要传入证书列表中的证书。
 需要通过调用 `event.preventDefault()` 来防止应用自动使用第一个证书进行验证。如下所示：
 ```javascript
 app.on('select-certificate', function (event, host, url, list, callback) {
@@ -224,7 +224,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
  **试图关掉所有的窗口。**
  `before-quit` 事件将会最先被触发。如果所有的窗口都被成功关闭了，`will-quit` 事件将会被触发，默认下应用将会被关闭。
-这个方法保证了所有的 `beforeunload` 和 `unload` 事件处理器被正确执行。假如一个窗口的 `beforeunload` 事件处理器返回 `false`，那么整个应用可能会取消退出。
+这个方法保证了所有的 `beforeunload` 和 `unload` 事件处理器被正确执行。假如窗口的 `beforeunload` 事件处理器返回 `false`，那么整个应用可能会取消退出。
 
 ### `app.exit(exitCode)`
 
@@ -247,7 +247,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 来让应用重启。
 调用多次 `app.relaunch`方法，当前实例退出后多个实例会被启动。
 
-例子：立即重启当前实例并向新的实例添加一个新的命令行参数
+例子：立即重启当前实例并向新的实例添加新的命令行参数
 ```javascript
 const {app} = require('electron')
 
@@ -287,7 +287,7 @@ app.exit(0)
 * `name` String
 
  **根据字符串查找指定路径**
-返回一个与 `name` 参数相关的特殊文件夹或文件路径。当失败时抛出一个 `Error` 。
+返回与 `name` 参数相关的特殊文件夹或文件路径。当失败时抛出`Error` 。
 你可以通过名称请求以下的路径：
 * `home` 用户的 home 文件夹(主目录)
 * `appData` 当前用户的应用数据文件夹，默认对应：
@@ -313,7 +313,7 @@ app.exit(0)
 * `path` String
 
  **重写某个 `name` 的路径为 `path`**
- `path` 可以是一个文件夹或者一个文件，这个和 `name` 的类型有关。
+ `path` 可以是文件夹或者文件，这个和 `name` 的类型有关。
 如果这个路径指向的文件夹不存在，这个文件夹将会被这个方法创建。
 如果错误则会抛出 `Error`。
 `name` 参数只能使用 `app.getPath` 中定义的 `name`。
@@ -600,7 +600,7 @@ app.on('ready', () => {
 * `userInfo` Object - 应用程序特定状态，供其他设备使用
 * `webpageURL` String - 如果在恢复设备上未安装合适的应用程序，则会在浏览器中加载网页。 
 该格式必须是`http`或`https`。
-创建一个 `NSUserActivity` 并将其设置为当前activity,该 Activity
+创建`NSUserActivity` 并将其设置为当前activity,该 Activity
 有资格进行 [Handoff][handoff] 到另一个设备.
 
 ### `app.getCurrentActivityType()` _macOS_

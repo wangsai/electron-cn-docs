@@ -3,12 +3,12 @@
 > `menu`  类可以用来创建原生菜单，它可用作应用菜单和
 [context 菜单](https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XUL/PopupGuide/ContextMenus).     
 
-进程: [主进程](../glossary.md#main-process)      
+进程: [主进程](../glossary.md#main-process)       
 
 
-这个模块是一个主进程的模块，并且可以通过 `remote` 模块给渲染进程调用.
+这个模块也可以通过 `remote` 模块给渲染进程调用.
 
-每个菜单有一个或几个菜单项 [menu items](menu-item.md)，并且每个菜单项可以有子菜单.
+每个菜单允许有多个菜单项 [menu items](menu-item.md)，且每个菜单项也可以有子菜单.
 
 下面这个例子是在网页(渲染进程)中通过 [remote](remote.md) 模块动态创建的菜单，并且右键显示:
 

@@ -195,8 +195,8 @@ child.once('ready-to-show',()=> {
     默认值为`true`。
   * `nodeIntegration` Boolean(可选) - 是否完整支持node。
     默认值为`true`。
-  * `preload` String(可选) - 预载脚本,其它脚本运行之前预先加载指定脚本. 这个脚本将一直可以使用 node APIs 无论 node integration 是否开启. 脚本路径为绝对路径.
-  当 node integration 关闭, 预加载的脚本将从全局范围重新引入node的全局引用标志. [这里是例子](process.md＃event-loaded)。
+  * `preload` String(可选) - 预载脚本,其它脚本运行之前预先加载指定脚本. 无论页面是否集成Node，此脚本都可以访问所有Node API. 脚本路径为绝对路径.      
+  当 node integration 关闭, 预加载的脚本将从全局范围重新引入node的全局引用标志. [这里是例子](process.md＃event-loaded)。     
   * `session`[Session](session.md#class-session) - 设置界面session. 而不是直接忽略session对象 , 也可用 `partition`来代替, 它接受一个 partition 字符串. 当同时使用 `session`和 `partition` , `session`优先级更高.
   默认使用默认 session.
   * `partition`String - 通过session的partition字符串来设置界面session. 如果 `partition`以 `persist:`开头, 这个界面将会为所有界面使用相同的 `partition`. 如果没有 `persist:`前缀, 界面使用历史session. 通过分享同一个 `partition` , 所有界面使用相同的session. 默认使用默认 session.
@@ -227,7 +227,7 @@ child.once('ready-to-show',()=> {
   默认值为  `false` 。
   * `scrollBounce` Boolean(可选) - 启用弹力动画(橡皮筋)效果,macOS中有效.
   默认值为  `false` 。
-  * `blinkFeatures` String(可选) -  以 `, `分隔的特性列表, 如
+  * `blinkFeatures` String(可选) -  以  `,` 分隔的特性列表, 如
       `CSSVariables,KeyboardEventKey`。在 [setFeatureEnabledFromString][blink-feature-string]文件中查看被支持的所有特性。
   * `disableBlinkFeatures` String(可选) -  以 `, `分隔的特性列表, 如
       `CSSVariables,KeyboardEventKey`。在 [RuntimeEnabledFeatures.in] [blink-feature-string]文件中查看被支持的所有特性。
