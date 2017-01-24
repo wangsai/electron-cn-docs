@@ -26,7 +26,7 @@ Electron 的硬编码API密钥(包括提出请求谷歌的地理编码Web服务)
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
-有关如何获取谷歌API密钥的说明，请访问：[此页]（https://www.chromium.org/developers/how-tos/api-keys）。通过默认情况下，新生成的谷歌API密钥可能不允许进行地址解析请求。要启用地址解析请求，请访问：[此页]（https://console.developers.google.com/apis/api/geolocation/overview）。
+有关如何获取谷歌API密钥的说明，请访问：[此页](https://www.chromium.org/developers/how-tos/api-keys)。通过默认情况下，新生成的谷歌API密钥可能不允许进行地址解析请求。要启用地址解析请求，请访问：[此页](https://console.developers.google.com/apis/api/geolocation/overview)。
 
 ### `ELECTRON_NO_ASAR`
 禁用ASAR支持。这个变量只有在设置 `ELECTRON_RUN_AS_NODE`派生的子进程并催生子进程的支持。

@@ -34,7 +34,7 @@ The `shell` 模块有如下方法:
   * `error` Error
 返回 `Boolean` - 是否有应用程序可用于打开URL。如果指定回调，则始终返回true。
 
-以系统默认设置打开给定的外部协议URL。 （例如，mailto：用户的默认邮件代理中的URL）。
+以系统默认设置打开给定的外部协议URL。 (例如，mailto：用户的默认邮件代理中的URL)。
 
 ### `shell.moveItemToTrash(fullPath)`
 * `fullPath` String

@@ -75,18 +75,18 @@ console.log(dialog)
 
 * `browserWindow` BrowserWindow (可选)
 * `options` Object
-  * `type` String (可选) - 可选 `"none"`, `"info"`, `"error"`, `"question"` 或
-  `"warning"`. On Windows, 在Windows上， `"question"`显示与 `"info"`相同的图标，除非您使用“图标”选项设置图标。
-  * `buttons` String[] (可选) - 按钮的文本数组。在Windows上，空数组将导致一个按钮标记为`"确定"`。
+  * `type` String (可选) - 可选 ``none``, ``info``, ``error``, ``question`` 或
+  ``warning``. On Windows, 在Windows上， ``question``显示与 ``info``相同的图标，除非您使用`图标`选项设置图标。
+  * `buttons` String[] (可选) - 按钮的文本数组。在Windows上，空数组将导致一个按钮标记为``确定``。
   * `defaultId` Integer (可选) - 当消息框打开时，按钮数组中的按钮的索引将默认选择。
   * `title` String (可选) - 消息框的标题，一些平台可能不会显示。
   * `message` String - 消息框的内容.
   * `detail` String (可选) - 消息的额外信息.
   * `icon` [NativeImage](native-image.md) (可选)
   * `cancelId` Integer (可选) - 当用户取消对话框而不是单击对话框的按钮时，将返回该值。
-    默认情况下，它是具有 `"cancel"`或 `"no"`作为标签的按钮的索引，如果没有这样的按钮，则为0。
-    在macOS和Windows上，`"取消"`按钮的索引将始终用作 `cancelId`，即使它被指定。
-  * `noLink` Boolean (可选) - 在Windows上,应用将尝试找出哪个 `按钮` 是常用按钮（如 `"取消"`或 `"是"`），并在对话框中显示其他作为命令链接。
+    默认情况下，它是具有 ``cancel``或 ``no``作为标签的按钮的索引，如果没有这样的按钮，则为0。
+    在macOS和Windows上，``取消``按钮的索引将始终用作 `cancelId`，即使它被指定。
+  * `noLink` Boolean (可选) - 在Windows上,应用将尝试找出哪个 `按钮` 是常用按钮(如 ``取消``或 ``是``)，并在对话框中显示其他作为命令链接。
     这可以使对话框以现代Windows应用程序的风格显示。
     如果你不喜欢这个行为，你可以设置 `noLink`为 `true`。
 * `callback` Function (可选)
@@ -113,4 +113,4 @@ console.log(dialog)
 ## Sheets
 
 在macOS上，如果您在 `browserWindow`参数中提供 `BrowserWindow`引用，或者如果没有提供窗口的话，对话框将显示为附加到窗口的工作表。
-您可以调用 `BrowserWindow.getCurrentWindow（）。setSheetOffset（offset）`来更改与附加工作表的窗口框架的偏移量。
+您可以调用 `BrowserWindow.getCurrentWindow()。setSheetOffset(offset)`来更改与附加工作表的窗口框架的偏移量。

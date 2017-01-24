@@ -62,7 +62,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 #### `downloadItem.setSavePath(path)`
 * `path` String - 设置下载项目的保存文件路径。
 API仅在会话的 `will-download` 回调函数中可用。
-如果用户未通过API设置保存路径，Electron将使用原始保存路径（通常的提示保存对话框）。
+如果用户未通过API设置保存路径，Electron将使用原始保存路径(通常的提示保存对话框)。
 
 #### `downloadItem.getSavePath()`
 返回 `String`  - 下载项目的保存路径。
@@ -98,7 +98,7 @@ API仅在会话的 `will-download` 回调函数中可用。
  如果用户在提示的下载保存对话框中更改文件名，则保存文件的实际名称将不同。
 
 ####`downloadItem.getTotalBytes()`
-返回 `Integer`  - 下载项目的总大小（以字节为单位）。
+返回 `Integer`  - 下载项目的总大小(以字节为单位)。
 如果大小未知，则返回0。
 
 ####`downloadItem.getReceivedBytes()`

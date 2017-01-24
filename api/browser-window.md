@@ -82,7 +82,7 @@ child.once('ready-to-show',()=> {
 * 在Windows上,不支持动态更改父窗口。
 * 在MacOS上,模态窗口附属于父窗口。
 * 在MacOS上,当父窗口移动时子窗口将保持与父窗口的相对位置,而在Windows和Linux子窗口则不会移动。
-* 在Linux上,模态窗口的类型将更改为"对话框",许多桌面环境不支持隐藏模态窗口。
+* 在Linux上,模态窗口的类型将更改为`对话框`,许多桌面环境不支持隐藏模态窗口。
 
 ##类：BrowserWindow
 
@@ -93,8 +93,8 @@ child.once('ready-to-show',()=> {
 ###`new BrowserWindow([options])`
 
 * `options`Object(可选)
-* `width` Integer(可选) - 窗口的宽度(以像素为单位)。默认值为"800"。
-* `height` Integer(可选) - 窗口的高度(以像素为单位)。默认值为"600"。
+* `width` Integer(可选) - 窗口的宽度(以像素为单位)。默认值为`800`。
+* `height` Integer(可选) - 窗口的高度(以像素为单位)。默认值为`600`。
 * `x` Integer(可选) - 窗口的左偏移距屏幕。默认是将窗口居中。
 * `y`Integer(可选) - 窗口的顶部偏移距屏幕。默认是将窗口居中。
 * `useContentSize` Boolean(可选) - 是否采用内容宽高为当前窗口的宽高 。
@@ -109,15 +109,15 @@ child.once('ready-to-show',()=> {
 * `maxHeight` Integer(可选) - 窗口的最大高度。
     默认是没有限制。
 * `resizable` Boolean(可选) - 窗口是否可调整大小。
-    默认值为"true"。
+    默认值为`true`。
 * `movable` Boolean(可选) - 窗口是否可移动。这没有实现
-    在Linux上。默认值为"true"。
+    在Linux上。默认值为`true`。
 * `minimizable` Boolean(可选) - 窗口是否可最小化。这不是
-    在Linux上实现。默认值为"true"。
+    在Linux上实现。默认值为`true`。
 * `maximizable` Boolean(可选) - 窗口是否可以最大化。这不是
-    在Linux上实现。默认值为"true"。
+    在Linux上实现。默认值为`true`。
 * `closable` Boolean(可选) - 窗口是否可关闭。这没有实现
-    在Linux上。默认值为"true"。
+    在Linux上。默认值为`true`。
 * `focusable` Boolean(可选) - 窗口是否可以聚焦。
     默认值为`true'。
     在Windows设置 `focusable：false`也意味着设置`skipTaskbar：true`。
@@ -127,20 +127,20 @@ child.once('ready-to-show',()=> {
 * `fullscreen` Boolean(可选) - 是否全屏。`false'全屏按钮将被隐藏或禁用
     在macOS上。默认值为  `false` 。
 * `fullscreenable` Boolean(可选) - 窗口是否可全屏。
-    默认值为"true"。
+    默认值为`true`。
 * `skipTaskbar` Boolean(可选) - 是否在任务栏中显示窗口。
     默认值为  `false`。
 * `kiosk` Boolean(可选) -  kiosk模式。
     默认值为  `false` 。
 * `title` String(可选) - 默认窗口标题。
-    默认为"Electron"。
+    默认为`Electron`。
 * `icon`([NativeImage](native-image.md)| String)(可选) - 窗口图标。
     在Windows上推荐使用`ICO`图标来获得最佳的视觉效果。
    默认使用可执行文件的图标。
 * `show` Boolean(可选) - 创建时是否显示窗口。
     默认值为`true'。
 * `frame` Boolean(可选) - 指定  `false` 则创建一个[无框窗口](frameless-window.md) 。
-    默认值为"true"。
+    默认值为`true`。
 * `parent` BrowserWindow(可选) - 指定父窗口。
     默认值为null。
 * `modal` Boolean(可选) -是否模态窗口,子窗口时使用。
@@ -149,14 +149,14 @@ child.once('ready-to-show',()=> {
     默认值为 `false`。
 * `disableAutoHideCursor` Boolean(可选) - 是否在键入时隐藏光标。
     默认值为  `false` 。
-* `autoHideMenuBar` Boolean(可选) - 自动隐藏菜单栏,除非"Alt"键。
+* `autoHideMenuBar` Boolean(可选) - 自动隐藏菜单栏,除非`Alt`键。
     默认值为  `false` 。
 * `enableLargerThanScreen` Boolean(可选) - 是否允许改变窗口大小大于屏幕。
     默认值为  `false` 。
 * `backgroundColor` String(可选) - 窗口的背景颜色如`＃66CD00`或`＃FFF`(支持透明度)。
     默认值为 `＃FFF`(white)。
 * `hasShadow` Boolean(可选) -窗口是否有阴影。仅macOS中有效。
-    默认值为"true"。
+    默认值为`true`。
 * `darkTheme` Boolean(可选) - 强制使用深色dark主题的窗口,只适用于一些GTK + 3桌面环境。
     默认值为  `false` 。
 * `transparent` Boolean(可选) - 窗口是否透明[transparent](frameless-window.md)。
@@ -180,7 +180,7 @@ child.once('ready-to-show',()=> {
   
 * `thickFrame` Boolean(可选) - 对无框架窗口使用`WS_THICKFRAME'风格。
     设置为  `false` 将删除窗口阴影和窗口动画。
-    默认值为"true"。
+    默认值为`true`。
 * `vibrancy` String(可选) - 窗口是否使用vibrancy动态效果,仅macOS中有效。
     可选值有: `appearance-based` , `light` , `dark` , `titlebar` , `selection`,
     `menu` , `popover` , `sidebar` , `medium-light`or `ultra-dark`.
@@ -192,16 +192,16 @@ child.once('ready-to-show',()=> {
 * `webPreferences` Object(可选) - 网页功能的设置,下方是它的对象属性:
   * `devTools` Boolean(可选) - 是否启用DevTools。
     如果它设置为  `false` ,不能使用`BrowserWindow.webContents.openDevTools()`来打开DevTools。
-    默认值为"true"。
+    默认值为`true`。
   * `nodeIntegration` Boolean(可选) - 是否完整支持node。
-    默认值为"true"。
+    默认值为`true`。
   * `preload` String(可选) - 预载脚本,其它脚本运行之前预先加载指定脚本. 这个脚本将一直可以使用 node APIs 无论 node integration 是否开启. 脚本路径为绝对路径.
   当 node integration 关闭, 预加载的脚本将从全局范围重新引入node的全局引用标志. [这里是例子](process.md＃event-loaded)。
   * `session`[Session](session.md#class-session) - 设置界面session. 而不是直接忽略session对象 , 也可用 `partition`来代替, 它接受一个 partition 字符串. 当同时使用 `session`和 `partition` , `session`优先级更高.
   默认使用默认 session.
   * `partition`String - 通过session的partition字符串来设置界面session. 如果 `partition`以 `persist:`开头, 这个界面将会为所有界面使用相同的 `partition`. 如果没有 `persist:`前缀, 界面使用历史session. 通过分享同一个 `partition` , 所有界面使用相同的session. 默认使用默认 session.
   * `zoomFactor` Number(可选) - 页面的默认缩放系数, `3.0`表示 `300％`。
-      默认值为"1.0"。
+      默认值为`1.0`。
   * `javascript`Boolean - 是否启用javascript支持. 
   默认为`true`.
   * `webSecurity`Boolean(可选) -  当设置为 `false` , 它将禁用同源策略 (通常用来测试网站), 并且如果有2个非用户设置的参数,就设置
@@ -212,13 +212,13 @@ child.once('ready-to-show',()=> {
   * `allowRunningInsecureContent`Boolean - Boolean -允许一个使用 https的界面来渲染由 http URLs 提交的html,css,javascript. 
   默认为 `false`.
   * `images` Boolean(可选) - 启用图像支持。
-  默认值为"true"。
+  默认值为`true`。
   * `textAreasAreResizable` Boolean(可选) - 使TextArea元素可调整大小。
-  默认值为"true"。
+  默认值为`true`。
   * `webgl` Boolean(可选) - 启用WebGL支持。
-  默认值为"true"。
+  默认值为`true`。
   * `webaudio` Boolean(可选) - 启用WebAudio支持。
-  默认值为"true"。
+  默认值为`true`。
   * `plugins` Boolean(可选) - 是否应启用插件。
   默认值为  `false` 。
   * `experimentalFeatures` Boolean(可选) - 启用Chromium的实验功能。
@@ -232,16 +232,16 @@ child.once('ready-to-show',()=> {
   * `disableBlinkFeatures` String(可选) -  以 `, `分隔的特性列表, 如
       `CSSVariables,KeyboardEventKey`。在 [RuntimeEnabledFeatures.in] [blink-feature-string]文件中查看被支持的所有特性。
   * `defaultFontFamily` Object(可选) - 设置font-family的默认字体。
-    * `standard` String(可选) - 默认为'Times New Roman`。
+    * `standard` String(可选) - 默认为 'Times New Roman`。
     * `serif` String(可选) - 默认为'Times New Roman`。
     * `sansSerif` String(可选) - 默认为`Arial`。
-    * `monospace` String(可选) - 默认为"Courier New"。
+    * `monospace` String(可选) - 默认为`Courier New`。
     * `cursive` String(可选) - 默认为`Script`。
     * `fantasy` String(可选) - 默认为`Impact`。
   * `defaultFontSize` Integer(可选) - 默认为`16`。
   * `defaultMonospaceFontSize` Integer(可选) - 默认为`13`。
   * `minimumFontSize` Integer(可选) - 默认为`0`。
-  * `defaultEncoding` String(可选) - 默认为"ISO-8859-1"。
+  * `defaultEncoding` String(可选) - 默认为 `ISO-8859-1`。
   * `backgroundThrottling` Boolean(可选) - 页面变成背景时是否限制动画和计时器。
       默认为 `true`。
   * `offscreen` Boolean(可选) - 是否绘制和渲染可视区域外的窗口。[更多细节](../ tutorial / offscreen-rendering.md)
@@ -285,7 +285,7 @@ window.onbeforeunload =(e)=> {
 ####事件：'unresponsive'
 当网页变得无响应时触发。
 
-####事件："responsive"
+####事件：`responsive`
 当无响应的网页再次变得响应时触发。
 
 ####事件：'blur'
@@ -303,7 +303,7 @@ window.onbeforeunload =(e)=> {
 ####事件：'ready-to-show'
 网页即将呈现时触发
 
-####事件："maximize"
+####事件：`maximize`
 窗口最大化时触发。
 
 ####事件：'unmaximize'
@@ -320,7 +320,7 @@ window.onbeforeunload =(e)=> {
 
 ####事件：'move'
 窗口移动到新位置时触发。
- **注意:** 在macOS上,此事件只是"moved"的别名。
+ **注意:** 在macOS上,此事件只是`moved`的别名。
 
 ####事件：'moved'_macOS_
 当窗口移动到新位置时触发一次。
@@ -344,7 +344,7 @@ window.onbeforeunload =(e)=> {
 * `command` String
 
 在请求一个[App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx)的时候触发.
-典型的是键盘媒体或浏览器命令, Windows上的 "Back" 按钮用作鼠标也会触发.
+典型的是键盘媒体或浏览器命令, Windows上的 `Back` 按钮用作鼠标也会触发.
 命令是小写的,下划线用连字符替换,
 `APPCOMMAND_`前缀被删除。
 例如`APPCOMMAND_BROWSER_BACKWARD`被作为`browser-backward`触发。
@@ -372,7 +372,7 @@ win.on('app-command',(e,cmd)=> {
 返回：
 * `event` Event
 * `direction` String
-三指拖移时触发。可能的方向是"up","right","down","left"。
+三指拖移时触发。可能的方向是`up`,`right`,`down`,`left`。
 
 ##静态方法
 
@@ -711,7 +711,7 @@ windows上句柄类型为 `HWND` ,macOS `NSView* ` , Linux `Window`.
 * `options` Object(可选)
   * `httpReferrer` String(可选) - HTTP来源网址。
   * `userAgent` String(可选) - 发起请求的userAgent。
-  * `extraHeaders`String(可选) - 额外的标题用 `\ n`
+  * `extraHeaders`String(可选) - 用 `\ n`分割的额外标题
   * `postData`([UploadRawData](structures / upload-raw-data.md)| [UploadFile](structures / upload-file.md)| [UploadFileSystem](structures / upload-file-system.md)| [UploadBlob ](structures / upload-blob.md))[] - (可选)
 
 与 `webContents.loadURL(url [,options])`相同。

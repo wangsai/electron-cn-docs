@@ -1,4 +1,4 @@
-# 本文介绍:powerSaveBlocker类(阻止系统进入低功耗（睡眠）模式)
+# 本文介绍:powerSaveBlocker类(阻止系统进入低功耗(睡眠)模式)
 
 > 有时候,我们需要应用在前后台无间断工作,并不需要系统睡眠.
 
@@ -16,7 +16,7 @@ powerSaveBlocker.stop(id)
 ## 方法
 `powerSaveBlocker` 模块有如下方法:
 
-###`powerSaveBlocker.start（type）`
+###`powerSaveBlocker.start(type)`
 
 * `type` String  - 节电模块类型。
   * `prevent-app-suspension`  -  阻止应用挂起.保持系统活跃，但允许屏幕关闭。示例用例：下载文件或播放音频。

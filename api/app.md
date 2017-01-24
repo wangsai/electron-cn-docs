@@ -66,7 +66,7 @@ Electron 将会先尝试关闭所有的窗口再触发 `will-quit` 事件，在�
  **当用户想要在应用中打开一个文件时触发**
  `open-file` 事件常常在应用已经打开并且系统想要再次使用应用打开文件时被触发。
  `open-file` 也会在一个文件被拖入 dock 且应用还没有运行的时候被触发。
-请确认在应用启动的时候（甚至在 `ready` 事件被触发前）就对 `open-file` 事件进行监听，以处理这种情况。
+请确认在应用启动的时候(甚至在 `ready` 事件被触发前)就对 `open-file` 事件进行监听，以处理这种情况。
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 在 Windows系统中, 你需要通过解析 process.argv 来获取文件路径。
 
@@ -289,7 +289,7 @@ app.exit(0)
  **根据字符串查找指定路径**
 返回一个与 `name` 参数相关的特殊文件夹或文件路径。当失败时抛出一个 `Error` 。
 你可以通过名称请求以下的路径：
-* `home` 用户的 home 文件夹（主目录）
+* `home` 用户的 home 文件夹(主目录)
 * `appData` 当前用户的应用数据文件夹，默认对应：
   * `%APPDATA%` Windows 中
   * `$XDG_CONFIG_HOME` or `~/.config` Linux 中
@@ -373,7 +373,7 @@ app.exit(0)
  **自定义协议格式并设置为默认处理程序**
 当前可执行程序设置为协议(亦称 URI scheme)的默认处理程序
 这允许您将应用程序更深入地集成到操作系统中. 一旦注册成功,
-所有 `your-protocol://` 格式的链接都会使用你的程序打开。整个链接（包括协议）将作为参数传递到应用程序中。
+所有 `your-protocol://` 格式的链接都会使用你的程序打开。整个链接(包括协议)将作为参数传递到应用程序中。
 在Windows系统中，你可以提供可选参数path，到执行文件的地址；args,一个在启动时传递给可执行文件的参数数组
 **注意:** 在macOS上，您只能注册已添加到应用程序的`info.plist`的协议，该协议不能在运行时修改。 
 但是，您可以在构建时使用简单的文本编辑器或脚本更改文件。 有关详细信息，请参阅 [Apple's documentation][CFBundleURLTypes] 
@@ -388,7 +388,7 @@ app.exit(0)
 返回 `Boolean` - 调用是否成功.
 
  **移除协议与默认程序之间的关联**
-检查当前程序是否为协议（也称为URI scheme）的默认处理程序如果是，它会移除程序与协议的关联
+检查当前程序是否为协议(也称为URI scheme)的默认处理程序如果是，它会移除程序与协议的关联
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
@@ -398,7 +398,7 @@ app.exit(0)
 
 返回 `Boolean`
  **是否为指定协议的默认程序**
-此方法检查当前程序是否为协议（也称为URI scheme）的默认处理程序。
+此方法检查当前程序是否为协议(也称为URI scheme)的默认处理程序。
 是则返回true 否则返回false
 **提示:** 在 macOS 系统中, 您可以使用此方法检查应用程序是否已注册为协议的默认处理程序。
 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 
@@ -454,7 +454,7 @@ Windows不会显示任何包含已删除项目的自定义类别.
     将总是显示在跳转列表的底部。
   * `frequent` - 显示应用常用文件列表，类别的名称及其项目由Windows设置。
   * `recent` - 显示应用最近打开的文件的列表，类别的名称及其项目由Windows设置。 
-    可以使用`app.addRecentDocument（path）`间接添加到项目到此类别。
+    可以使用`app.addRecentDocument(path)`间接添加到项目到此类别。
   * `custom` - 显示任务或文件链接，`name`必须由应用程序设置。
 * `name` String - 当`type` 为 `custom` 时此值为必填项,否则应省略。
 * `items` Array - `JumpListItem` 对象数组，如果 `type` 值为 `tasks` 或
@@ -474,19 +474,19 @@ Windows不允许删除的项目添加回自定义类别。 尝试提前将删除
   * `task` - 带有特殊参数的方式启动一个应用；
   * `separator` - 可以用于标准的 `Tasks`类别中的独立项目；
   * `file` - 一个链接将使用创建跳转列表的应用程序打开一个文件,对应的应用程序必须
-   注册为这个文件类型的处理程序（不必是默认的处理程序）
+   注册为这个文件类型的处理程序(不必是默认的处理程序)
 * `path` String - 要打开的文件的路径， 只有当 `type` 值为 `file`时设置
 * `program` String - 要执行程序的路径, 通常需要指定`process.execPath` 打开当前的应用程序.
  只有当 `type` 值为 `task`时设置
 * `args` String -  `program` 运行时的命令参数， 只有当 `type` 值为 `task`时设置
 * `title` String - 跳转列表中项目的展示文本.
   只有当 `type` 值为 `task`时设置
-* `description` String - 任务说明（显示在工具提示中）.
+* `description` String - 任务说明(显示在工具提示中).
   只有当 `type` 值为 `task`时设置
 * `iconPath` String - 要显示在跳转列表中的图标的绝对路径，可以是包含图标的
-任意资源文件（例如`.ico`，`.exe`，`.dll`）。 你通常可以指定`process.execPath`来显示程序图标。
+任意资源文件(例如`.ico`，`.exe`，`.dll`)。 你通常可以指定`process.execPath`来显示程序图标。
 * `iconIndex` Integer - 资源文件中图标的索引。 如果资源文件包含多个图标，
-则此值可用于指定此任务图标的（从0开始）索引，如果资源文件只包含一个图标，则此属性应设置为0
+则此值可用于指定此任务图标的(从0开始)索引，如果资源文件只包含一个图标，则此属性应设置为0
 
 以下是一个创建一个自定义跳转列表的简单例子：
 
@@ -502,7 +502,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // has a name so `type` is assumed to be `custom`
     name: 'Tools',
     items: [
       {
@@ -526,7 +526,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // has no name and no type so `type` is assumed to be `tasks`
     items: [
       {
         type: 'task',
@@ -564,7 +564,7 @@ app.setJumpList([
 
 如果当前实例为第一个实例，那么在这个方法将会返回 `false` 来保证它继续运行。否则将会返回 `true` 来让它立刻退出。
 
-在 macOS 中，如果用户通过 Finder、`open-file` 或者 `open-url` 打开应用，系统会强制确保只有一个实例在运行。但是如果用户是通过
+在 macOS 中，如果用户通过 Finder,  `open-file` 或者 `open-url` 打开应用，系统会强制确保只有一个实例在运行。但是如果用户是通过
 命令行打开，这个系统机制会被忽略，所以你仍然需要靠这个方法来保证应用为单实例运行的。
 
 下面是一个简单的例子。我们可以通过这个例子了解如何确保应用为单实例运行状态。
@@ -599,7 +599,7 @@ app.on('ready', () => {
   [`NSUserActivity.activityType`][activity-type].
 * `userInfo` Object - 应用程序特定状态，供其他设备使用
 * `webpageURL` String - 如果在恢复设备上未安装合适的应用程序，则会在浏览器中加载网页。 
-该格式必须是“http”或“https”。
+该格式必须是`http`或`https`。
 创建一个 `NSUserActivity` 并将其设置为当前activity,该 Activity
 有资格进行 [Handoff][handoff] 到另一个设备.
 

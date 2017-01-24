@@ -1,9 +1,9 @@
 # 本文介绍:从渲染器进程通信至主进程
 
-> `remote`模块是一种渲染器进程（网页）和主进程之间通信（IPC）的简单方法。
+> `remote`模块是一种渲染器进程(网页)和主进程之间通信(IPC)的简单方法。
 
 进程: [渲染进程](../glossary.md#renderer-process)      
-在Electron中，GUI相关模块（例如 `dialog`， `menu`等）只能用在主进程中而非渲染器进程中。
+在Electron中，GUI相关模块(例如 `dialog`， `menu`等)只能用在主进程中而非渲染器进程中。
 为了从渲染器进程使用它们， `ipc`模块是向主进程发送进程间消息所必需的。
 `remote`模块可以调用主进程对象的方法，而类似于Java的[RMI] [rmi]无需显式地发送进程间消息。
 
@@ -14,12 +14,12 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
- **注意:** 对于反向操作（从主进程访问渲染进程），可以使用[webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+ **注意:** 对于反向操作(从主进程访问渲染进程)，可以使用[webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
 ## 远程对象
 
- `remote`模块返回的每个对象（包括函数）都代表主进程中的一个对象（我们称之为远程对象或远程函数）。
-当调用远程对象的方法、执行远程函数或者使用远程构造器（函数）创建新对象时，其实就是在发送同步的进程间消息。
+ `remote`模块返回的每个对象(包括函数)都代表主进程中的一个对象(我们称之为远程对象或远程函数)。
+当调用远程对象的方法, 执行远程函数或者使用远程构造器(函数)创建新对象时，其实就是在发送同步的进程间消息。
 
 在上面的例子中， `BrowserWindow` 和 `win` 都是远程对象，但 `new BrowserWindow` 并没有在渲染进程中创建 `BrowserWindow` 对象。相反,它在主进程中创建了 `BrowserWindow` 对象，并在渲染进程中返回了对应的远程对象，即`win` 对象。
 
@@ -30,9 +30,9 @@ win.loadURL('https://github.com')
 
 ##远程对象的生命周期
 
-只要远程对象在渲染进程中生存（换句话说，就是没有被垃圾收集），相应的对象在主进程中就不会被释放。
+只要远程对象在渲染进程中生存(换句话说，就是没有被垃圾收集)，相应的对象在主进程中就不会被释放。
 当远程对象被垃圾回收时，主进程中的对应对象才会被取消关联。
-如果远程对象在渲染器进程中泄漏（例如存储在映射中但从不释放），则主过程中的相应对象也将被泄露，因此您千万不要泄漏远程对象。
+如果远程对象在渲染器进程中泄漏(例如存储在映射中但从不释放)，则主过程中的相应对象也将被泄露，因此您千万不要泄漏远程对象。
 不过，像字符串和数字这样的主值类型是通过副本发送的。
 
 ##将回调传递给主进程

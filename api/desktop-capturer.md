@@ -40,9 +40,9 @@ function handleError (e) {
 }
 ```
 
-当调用 `navigator.webkitGetUserMedia` 时创建一个约束对象，如果使用 `desktopCapturer` 的资源，必须设置 `chromeMediaSource` 为 `"desktop"` ，并且 `audio` 为 `false`.
+当调用 `navigator.webkitGetUserMedia` 时创建一个约束对象，如果使用 `desktopCapturer` 的资源，必须设置 `chromeMediaSource` 为 ``desktop`` ，并且 `audio` 为 `false`.
 
-如果你想捕获整个桌面的 audio 和 video，你可以设置 `chromeMediaSource` 为 `"screen"` ，和 `audio` 为 `true`.
+如果你想捕获整个桌面的 audio 和 video，你可以设置 `chromeMediaSource` 为 ``screen`` ，和 `audio` 为 `true`.
 当使用这个方法的时候，不可以指定一个 `chromeMediaSourceId`.
 
 ## 方法

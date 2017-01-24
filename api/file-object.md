@@ -6,7 +6,7 @@ Electron增添了 `path`属性的 `File`接口，用来获得文件真实路径�
 
 拖入文件到app并显示真实路径的例子：
 ```html
-<div id="holder">
+<div id=`holder`>
   Drag your file here
 </div>
 

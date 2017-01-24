@@ -22,7 +22,7 @@
 
 * 与Jquery等第三方js插件的兼容相关
 ```
-<script src="jquery.min.js"></script>
+<script src=`jquery.min.js`></script>
 <script>if (typeof module === 'object') {window.jQuery = window.$ = module.exports;};</script>
 ```
 
@@ -42,7 +42,7 @@
 * [使用开发人员工具扩展](tutorial/devtools-extension.md)
 * [使用 Pepper Flash 插件](tutorial/using-pepper-flash-plugin.md)
 * [使用 Widevine CDM 插件](tutorial/using-widevine-cdm-plugin.md)
-* [通过自动化持续集成系统（CI）进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+* [通过自动化持续集成系统(CI)进行测试 (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
 * [离屏渲染](tutorial/offscreen-rendering.md)
 
 ## 向导:
@@ -85,7 +85,7 @@
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### 渲染进程（网页）内可用的模块:
+### 渲染进程(网页)内可用的模块:
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
@@ -105,7 +105,7 @@
 * [代码规范](development/coding-style.md)
 * [在 C++ 中使用 clang格式化工具](development/clang-format.md)
 * [源码目录结构](development/source-code-directory-structure.md)
-* [与 NW.js（原 node-webkit）在技术上的差异](development/atom-shell-vs-node-webkit.md)
+* [与 NW.js(原 node-webkit)在技术上的差异](development/atom-shell-vs-node-webkit.md)
 * [构建系统概览](development/build-system-overview.md)
 * [构建步骤 (macOS)](development/build-instructions-osx.md)
 * [构建步骤 (Windows)](development/build-instructions-windows.md)

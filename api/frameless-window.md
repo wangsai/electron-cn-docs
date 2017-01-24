@@ -16,7 +16,7 @@ win.show()
 ### macOS上的替代方案
 在macOS 10.10 Yosemite或者更新的版本中，有一个替代方案去生成一个无边框窗口。
 不同于设置`frame`为`false`会隐藏标题栏以及失去对窗口的控制，你可能想隐藏标题栏使你的页面内容显示在整个窗口上
-，同时又想保持对窗口的控制("traffic lights")。你可以通过指定`titleBarStyle`这一新选项达到目标:
+，同时又想保持对窗口的控制(`traffic lights`)。你可以通过指定`titleBarStyle`这一新选项达到目标:
 
 #### `hidden`
 一个仅左上角有正常窗口控制的无标题栏和工具栏的窗口
@@ -73,7 +73,7 @@ win.setIgnoreMouseEvents(true)
 为了让整个窗口可拖动，你可以在 `body`的样式中添加 `-webkit-app-region: drag`:
 
 ```html
-<body style="-webkit-app-region: drag">
+<body style=`-webkit-app-region: drag`>
 </body>
 ```
 另外需要注意的是，如果你设置了整个窗口可拖动，你必须标记按钮为不可拖动的(non-draggable)，

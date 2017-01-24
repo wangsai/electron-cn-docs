@@ -20,12 +20,12 @@
 // 主进程中
 const {ipcMain} = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // 输出 "ping"
+  console.log(arg)  // 输出 `ping`
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // 输出 "ping"
+  console.log(arg)  // 输出 `ping`
   event.returnValue = 'pong'
 })
 ```
@@ -33,10 +33,10 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```javascript
 // 渲染进程中(即网页).
 const {ipcRenderer} = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // 输出 "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // 输出 `pong`
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // 输出 "pong"
+  console.log(arg) // 输出 `pong`
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```

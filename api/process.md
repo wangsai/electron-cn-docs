@@ -4,7 +4,7 @@
 
 进程: [主进程](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 Electron 的 `process` 对象是[Node.js `process` 对象](https://nodejs.org/api/process.html) 的扩展。
-它添加了以下事件、属性和方法：
+它添加了以下事件, 属性和方法：
 
 ## 事件
 
@@ -28,7 +28,7 @@ process.once('loaded', () => {
 设置为 `true` 可使 `asar` 在node的内置模块中失效。
 
 ### `process.type`
-当前 `process` 的类型，值为`"browser"` (即主进程) 或 `"renderer"`。
+当前 `process` 的类型，值为``browser`` (即主进程) 或 ``renderer``。
 
 ### `process.versions.electron`
 Electron的版本号。

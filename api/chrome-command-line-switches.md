@@ -4,13 +4,13 @@
 [app.commandLine.appendSwitch][append-switch] 来添加它们到你应用的main脚本里面:
 
 ```javascript
-const {app} = require（'electron'）
-app.commandLine.appendSwitch（'remote-debugging-port'，'8315'）
-app.commandLine.appendSwitch（'host-rules'，'MAP * 127.0.0.1'）
+const {app} = require('electron')
+app.commandLine.appendSwitch('remote-debugging-port'，'8315')
+app.commandLine.appendSwitch('host-rules'，'MAP * 127.0.0.1')
 
-app.on（'ready'，（）=> {
+app.on('ready'，()=> {
   //您的代码在这里
-}）
+})
 ```
 
 ## --ignore-connections-limit =`domains`
@@ -37,7 +37,7 @@ app.on（'ready'，（）=> {
 指定引擎过渡到 JS 引擎. 
 在启动Electron时，如果你想在主进程中激活 `flags` ，它将被转换.
 ```bash
-$ electron --js-flags =“ - harmony_proxies --harmony_collections”your-app
+$ electron --js-flags =` - harmony_proxies --harmony_collections`your-app
 ```
 
 请参阅[Node文档] [node-cli]或在终端中运行`node --help`以获取可用标志列表。
@@ -58,12 +58,12 @@ WebSocket请求。
 例如：
 
 ```javascript
-const {app} = require（'electron'）
-app.commandLine.appendSwitch（'proxy-bypass-list'，'<local>; *。google.com; * foo.com; 1.2.3.4：5678'）
+const {app} = require('electron')
+app.commandLine.appendSwitch('proxy-bypass-list'，'<local>; *。google.com; * foo.com; 1.2.3.4：5678')
 ```
 
-将使用代理服务器为所有主机除本地地址（`localhost`，
-`127.0.0.1`等），`google.com`子域，包含后缀的主机
+将使用代理服务器为所有主机除本地地址(`localhost`，
+`127.0.0.1`等)，`google.com`子域，包含后缀的主机
 `foo.com`和任何在`1.2.3.4：5678`。
 
 ## --proxy-pac-url =`url`
@@ -77,19 +77,19 @@ app.commandLine.appendSwitch（'proxy-bypass-list'，'<local>; *。google.com; *
 
 ## --host-rules =`rules`
 
-以逗号分隔的“rules”列表，用于控制主机名的映射方式。
+以逗号分隔的`rules`列表，用于控制主机名的映射方式。
 
 例如：
 
 * `MAP * 127.0.0.1`强制所有主机名映射到127.0.0.1
-* `MAP * .google.com proxy`强制将所有google.com子域解析为“代理”。
-* `MAP test.com [:: 1]：77`强制“test.com”解决IPv6环回。将
+* `MAP * .google.com proxy`强制将所有google.com子域解析为`代理`。
+* `MAP test.com [:: 1]：77`强制`test.com`解决IPv6环回。将
   也强制端口的所得套接字地址为77。
-* `MAP * baz，EXCLUDE www.google.com`将所有内容重新映射到“baz”，除了“www.google.com”。
+* `MAP * baz，EXCLUDE www.google.com`将所有内容重新映射到`baz`，除了`www.google.com`。
 
-这些映射适用于网络请求（TCP连接）中的端点主机
+这些映射适用于网络请求(TCP连接)中的端点主机
 和主机解析器在一个直接连接，和`CONNECT`在HTTP代理
-连接，以及SOCKS代理连接中的端点主机）。
+连接，以及SOCKS代理连接中的端点主机)。
 
 ## --host-resolver-rules =`rules`
 
@@ -105,7 +105,7 @@ app.commandLine.appendSwitch（'proxy-bypass-list'，'<local>; *。google.com; *
 --auth-server-whitelist ='* example.com，* foobar.com，* baz'
 ```
 
-那么以“example.com”，“foobar.com”，“baz”结尾的任何`url'将被考虑
+那么以`example.com`，`foobar.com`，`baz`结尾的任何`url'将被考虑
 用于集成认证。如果没有`*`前缀，url必须完全匹配。
 
 ## --auth-negotiate-delegate-whitelist =`url`
@@ -127,11 +127,11 @@ app.commandLine.appendSwitch（'proxy-bypass-list'，'<local>; *。google.com; *
 
 ## --log-net-log =`path`
 
-允许保存网络日志事件，并将其写入“path”。
+允许保存网络日志事件，并将其写入`path`。
 
 ## --ssl-version-fallback-min =`version`
 
-设置TLS的最低SSL / TLS版本（`tls1`，`tls1.1`或`tls1.2`）
+设置TLS的最低SSL / TLS版本(`tls1`，`tls1.1`或`tls1.2`)
 回退会接受。
 
 ## --cipher-suite-blacklist =`cipher_suites`

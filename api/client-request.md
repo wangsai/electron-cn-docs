@@ -12,8 +12,8 @@
   * `session` Object(可选) - [`Session`](session.md)与请求相关联。 `session` 优先于 `partition`。
   * `partition` String(可选) - [`partition`]的名称(session.md)与请求相关联。默认为空字符串。
  如果 `session`是显式的指定， `partition`被忽略。
-  * `protocol` String(可选) - “scheme：”形式的协议方案。可选“http：”或“https：”。默认为“http：”。
-  * `host` String(可选) - 作为连接提供的服务器主机,主机名和端口号“hostname：port”
+  * `protocol` String(可选) - `scheme：`形式的协议方案。可选`http：`或`https：`。默认为`http：`。
+  * `host` String(可选) - 作为连接提供的服务器主机,主机名和端口号`hostname：port`
   * `hostname` String(可选) - 服务器主机名。
   * `port` Integer(可选) - 服务器的侦听端口号。
   * `path` String(可选) - 请求URL的路径部分。
@@ -21,7 +21,7 @@
 `options`属性，如 `protocol`， `host`， `hostname`， `port`和 `path`严格遵循Node.js模型中描述的
 [URL](https://nodejs.org/api/url.html)模块。
 
-例如，我们可以创建与“github.com”相同的请求如下：
+例如，我们可以创建与`github.com`相同的请求如下：
 
 ```JavaScript
 const request = net.request({
@@ -92,7 +92,7 @@ request.on('login'，(authInfo，callback)=> {
 
 ####事件：'close'
 
-作为HTTP请求 - 响应事务中的最后一个事件。 “close”
+作为HTTP请求 - 响应事务中的最后一个事件。 `close`
 事件表示没有更多的事件将发出在 `request`或者
 `response`对象。
 

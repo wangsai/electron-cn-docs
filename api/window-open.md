@@ -18,7 +18,6 @@
 
  `features` 遵循标准浏览器的格式，但是每个feature 应该作为 `BrowserWindow` 参数的一个字段.
 
-
 ### `window.opener.postMessage(message, targetOrigin)`
 
 * `message` String

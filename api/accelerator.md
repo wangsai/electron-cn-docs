@@ -21,16 +21,16 @@ app.on('ready', () => {
 ```
 ## 运行平台相关的提示
 
-在 Linux 和 Windows 上， `Command`  键并不存在，因此我们通常用 `CommandOrControl` 来表示“在 macOS 下为 `Command` 键，但在
+在 Linux 和 Windows 上， `Command`  键并不存在，因此我们通常用 `CommandOrControl` 来表示`在 macOS 下为 `Command` 键，但在
 Linux 和 Windows 下为 `Control` 键。
 
 `Super` 键是指 Linux 和 Windows 上的 `Windows` 键，但是在 macOS 下为 `Command` 键。
 
 ## 可用的功能按键
 
-* `Command`（缩写为 `Cmd`）
-* `Control`（缩写为 `Ctrl`）
-* `CommandOrControl`（缩写为 `CmdOrCtrl`）
+* `Command`(缩写为 `Cmd`)
+* `Control`(缩写为 `Ctrl`)
+* `CommandOrControl`(缩写为 `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
@@ -42,17 +42,17 @@ Linux 和 Windows 下为 `Control` 键。
 * `0` 到 `9`
 * `A` 到 `Z`
 * `F1` 到 `F24`
-* 类似与 `~`、`!`、`@`、`#`、`$` 的标点符号。
+* 类似与 `~`,  `!`,  `@`,  `#`,  `$` 的标点符号。
 * `Plus`
 * `Space`
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return`（和 `Enter` 等同）
-* `Up`、`Down`、`Left` 和 `Right`
+* `Return`(和 `Enter` 等同)
+* `Up`,  `Down`,  `Left` 和 `Right`
 * `Home` 和 `End`
 * `PageUp` 和 `PageDown`
-* `Escape`（缩写为 `Esc`）
-* `VolumeUp` 、 `VolumeDown`  和 `VolumeMute`
-* `MediaNextTrack` 、 `MediaPreviousTrack` 、 `MediaStop`  和   `MediaPlayPause`
+* `Escape`(缩写为 `Esc`)
+* `VolumeUp` ,  `VolumeDown`  和 `VolumeMute`
+* `MediaNextTrack` ,  `MediaPreviousTrack` ,  `MediaStop`  和   `MediaPlayPause`
 * `PrintScreen`

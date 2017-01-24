@@ -123,11 +123,11 @@ session.defaultSession.on('will-download', (event, item, webContents) => {
 `proxyRules` 需要遵循下面的规则:
 
 ```
-proxyRules = schemeProxies[";"<schemeProxies>]
-schemeProxies = [<urlScheme>"="]<proxyURIList>
-urlScheme = "http" | "https" | "ftp" | "socks"
-proxyURIList = <proxyURL>[","<proxyURIList>]
-proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
+proxyRules = schemeProxies[`;`<schemeProxies>]
+schemeProxies = [<urlScheme>`=`]<proxyURIList>
+urlScheme = `http` | `https` | `ftp` | `socks`
+proxyURIList = <proxyURL>[`,`<proxyURIList>]
+proxyURL = [<proxyScheme>`://`]<proxyHost>[`:`<proxyPort>]
 ```
 
 例子:
@@ -143,26 +143,26 @@ proxyURL = [<proxyScheme>"://"]<proxyHost>[":"<proxyPort>]
 
  `proxyBypassRules`是一个以逗号分隔的规则列表，如下所述：
 
-* `[ URL_SCHEME "://" ] HOSTNAME_PATTERN [ ":" <port> ]`
+* `[ URL_SCHEME `://` ] HOSTNAME_PATTERN [ `:` <port> ]`
 匹配与模式HOSTNAME_PATTERN匹配的所有主机名。
-如:"foobar.com", "*foobar.com", "*.foobar.com", "*foobar.com:99","https://x.*.y.com:99"
+如:`foobar.com`, `*foobar.com`, `*.foobar.com`, `*foobar.com:99`,`https://x.*.y.com:99`
 
- * `"." HOSTNAME_SUFFIX_PATTERN [ ":" PORT ]`
+ * ``.` HOSTNAME_SUFFIX_PATTERN [ `:` PORT ]`
 匹配特定域后缀。
-如:".google.com", ".com", "http://.google.com"
+如:`.google.com`, `.com`, `http://.google.com`
 
-* `[ SCHEME "://" ] IP_LITERAL [ ":" PORT ]`
+* `[ SCHEME `://` ] IP_LITERAL [ `:` PORT ]`
    匹配IP地址。
-   如:"127.0.1", "[0:0::1]", "[::1]", "http://[::1]:99"
+   如:`127.0.1`, `[0:0::1]`, `[::1]`, `http://[::1]:99`
 
-*  `IP_LITERAL "/" PREFIX_LENGHT_IN_BITS`
+*  `IP_LITERAL `/` PREFIX_LENGHT_IN_BITS`
 匹配到指定范围之间的IP字面值的任何URL。
 IP范围使用CIDR表示法指定。
-   如:"192.168.1.1/16", "fefe:13::abc/33".
+   如:`192.168.1.1/16`, `fefe:13::abc/33`.
 
 *  `<local>`
 匹配本地地址。
- `<local>`的含义是主机是否匹配“127.0.0.1”，“:: 1”，“localhost”之一。
+ `<local>`的含义是主机是否匹配`127.0.0.1`，`:: 1`，`localhost`之一。
 
 #### `ses.resolveProxy(url, callback)`
 * `url` URL
@@ -266,7 +266,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 
 覆盖此会话的 `userAgent`和 `acceptLanguages`。
 
- `acceptLanguages`是以逗号分隔的语言列表，例如 `"en-US，fr，de，ko，zh-CN，ja"`。
+ `acceptLanguages`是以逗号分隔的语言列表，例如 ``en-US，fr，de，ko，zh-CN，ja``。
 
 这不会影响现有的 `WebContents`，每个WebContents可以使用 `webContents.setUserAgent`来覆盖会话级的userAgent。
 

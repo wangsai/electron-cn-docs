@@ -46,5 +46,5 @@ app.on('ready', () => {
 
 返回 [`ClientRequest`](./client-request.md)
 
-使用提供的 `options` 创建一个[`ClientRequest`]（./ client-request.md）实例，它们直接转发给 `ClientRequest`构造函数。
+使用提供的 `options` 创建一个[`ClientRequest`](./ client-request.md)实例，它们直接转发给 `ClientRequest`构造函数。
  `net.request`方法将用于根据`options`对象中指定的协议方案发出安全和不安全的HTTP请求。

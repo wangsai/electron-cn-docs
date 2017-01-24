@@ -35,7 +35,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 ###实例方法
 
 #### `debugger.attach([protocolVersion])`
-* `protocolVersion`  String（可选） - 请求的调试协议版本。
+* `protocolVersion`  String(可选) - 请求的调试协议版本。
 将调试器附加到`webContents'。
 
 #### `debugger.isAttached()`

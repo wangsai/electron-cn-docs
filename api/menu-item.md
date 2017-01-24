@@ -59,9 +59,9 @@
 * `stoppeaking`  - 映射到`stopSpeaking`动作
 * `front`  - 映射到`arrangeInFront`动作
 * `zoom`  - 映射到`performZoom`动作
-* `window`  - 子菜单是一个“窗口”菜单
-* `help`  - 子菜单是一个“帮助”菜单
-* `services`  - 子菜单是一个“服务”菜单
+* `window`  - 子菜单是一个`窗口`菜单
+* `help`  - 子菜单是一个`帮助`菜单
+* `services`  - 子菜单是一个`服务`菜单
 
 当在macOS上指定 `role`时， `label` 和 `accelerator`是唯一会影响MenuItem的选项。所有其他选项将被忽略。
 
@@ -76,7 +76,7 @@
 ####`menuItem.checked`
 该项是否选中，此属性可以动态更改。
  `checkbox` 菜单项将在选中时打开或关闭 `checked`属性
- `radio`菜单项将在点击时打开其“checked”属性，并将关闭同一菜单中所有相邻项的该属性。
+ `radio`菜单项将在点击时打开其`checked`属性，并将关闭同一菜单中所有相邻项的该属性。
  `click` 允许添加一个点击行为。
 
 ####`menuItem.label`

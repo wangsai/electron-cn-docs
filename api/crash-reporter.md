@@ -40,7 +40,7 @@ crashReporter.start({
   * `extra` Object (可选) - 一个你可以定义的对象，附带在崩溃报告上一起发送 . 只有字符串属性可以被正确发送，不支持嵌套对象.
   
 此方法在使用任何其他 `crashReporter` API之前调用.
-您可从中收集崩溃报告的每个进程（主/渲染器）。
+您可从中收集崩溃报告的每个进程(主/渲染器)。
 当从不同进程调用时，可以向 `crashReporter.start`传递不同的选项。
 
  **注意：**在Windows和Linux上，Electron使用`breakpad'进行崩溃收集和报告。
