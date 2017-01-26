@@ -18,73 +18,103 @@ app.on('window-all-closed', () => {
 `app` 对象会触发以下事件：
 
 ### 事件：'will-finish-launching'
- **当应用程序完成基础的启动的时候被触发**
- 在 Windows 和 Linux 中，`will-finish-launching` 事件与 `ready` 事件是相同的； 在 macOS 中，
-这个事件相当于 `NSApplication` 中的 `applicationWillFinishLaunching` 提示。
-通常用于启动崩溃报告和自动更新等在这里为 `open-file` 和 `open-url` 设置监听器。
 
-在大多数的情况下，你应该只在 `ready` 事件处理器中完成所有的业务。
+ **当应用程序完成基础的启动的时候被触发**
+ 
+在 Windows 和 Linux 中， `will-finish-launching` 事件等同 `ready` 事件；
+
+在 macOS 中，这个事件相当于 `NSApplication` 中的 `applicationWillFinishLaunching` 提示。
+
+通常用于启动崩溃报告和自动更新之类的在这里为 `open-file` 和 `open-url` 设置监听器。
+
+在大多数的情况下，只需在 `ready` 事件完成所有业务。
 
 ### 事件：'ready'
 返回:
 * `launchInfo` Object _macOS_
+
  **当 Electron 完成初始化时被触发**
+ 
 在 macOs 中， 如果从通知中心中启动，那么 `launchInfo` 中的 `userInfo`包含用来打开应用程序的 `NSUserNotification` 信息。
+
 你可以通过调用 `app.isReady()` 方法来检查此事件是否已触发。
 
 ### 事件：'window-all-closed'
+
  **当所有的窗口都被关闭时触发**
+ 
 如果您没有监听此事件，当所有窗口都已关闭时，默认值行为是退出应用程序。
+
 但如果你监听此事件，将由你来控制应用程序是否退出。
+
 如果用户按下了 `Cmd + Q`，或者开发者调用了 `app.quit()` ，
+
 Electron 将会先尝试关闭所有的窗口再触发 `will-quit` 事件，在这种情况下 `window-all-closed`不会被触发。
 
 ### 事件：'before-quit'
 返回：
 * `event` Event
+
  **应用程序开始关闭它的窗口的时候被触发**
-调用 `event.preventDefault()` 将会阻止终止应用程序的默认行为。
- **注意：** 如果退出是由 `autoUpdater.quitAndInstall()`启动的, `before-quit` 将在所有窗口全部`close`事件后才被触发。
+ 
+调用 `event.preventDefault()` 可阻止应用程序默认的终止。
+
+ **注意：** 如果退出是由 `autoUpdater.quitAndInstall()`启动的, `before-quit` 将触发于所有窗口全部`close`事件之后。
 
 ### 事件：'will-quit'
 返回：
 * `event` Event
+
  **当所有的窗口已经被关闭，应用即将退出时被触发**
-调用 `event.preventDefault()` 将会阻止终止应用程序的默认行为。
+ 
+调用 `event.preventDefault()` 可阻止应用程序默认的终止。
+
 你可以在 `window-all-closed` 事件的描述中看到 `will-quit` 事件和 `window-all-closed` 事件的区别。
 
 ### 事件：'quit'
 返回：
 * `event` Event
 * `exitCode` Integer
+
  **当应用程序正在退出时触发**
 
 ### 事件：'open-file' _macOS_
 返回：
 * `event` Event
 * `path` String
+
  **当用户想要在应用中打开一个文件时触发**
+ 
  `open-file` 事件常常在应用已经打开并且系统想要再次使用应用打开文件时被触发。
+ 
  `open-file` 也会在一个文件被拖入 dock 且应用还没有运行的时候被触发。
+ 
 请确认在应用启动的时候(甚至在 `ready` 事件被触发前)就对 `open-file` 事件进行监听，以处理这种情况。
+
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
+
 在 Windows系统中, 你需要通过解析 process.argv 来获取文件路径。
 
 ### 事件：'open-url' _macOS_
 返回：
 * `event` Event
 * `url` String
+
  **当用户想要在应用中打开一个url的时候被触发**
+ 
  URL格式必须要提前标识才能被你的应用打开。
-应用程序的`Info.plist`文件必须在 `CFBundleURLTypes` 键中定义url方案，并且
-将 `NSPrincipalClass` 设置为 `AtomApplication`。
+ 
+应用程序的 `Info.plist`文件必须在 `CFBundleURLTypes` 键中定义url方案，并且将 `NSPrincipalClass` 设置为 `AtomApplication`。
+
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
 
 ### 事件：'activate' _macOS_
 返回：
 * `event` Event
 * `hasVisibleWindows` Boolean
+
  **当应用被激活时触发**
+ 
  常用于点击应用的 dock 图标的时候。
 
 ### 事件: 'continue-activity' _macOS_
@@ -94,37 +124,49 @@ Electron 将会先尝试关闭所有的窗口再触发 `will-quit` 事件，在�
 * `userInfo` Object - 包含由另一个设备上的活动所存储的应用程序特定的状态。
 
  **当来自不同设备的活动通过 [Handoff][handoff] 想要恢复时触发**
+ 
 如果你想处理这个事件，你应该调用 `event.preventDefault()` 。
+
 只有具有支持相应的活动类型并且相同的开发团队ID作为启动程序时，用户行为才会进行。
+
 所支持活动类型已在应用的`Info.plist`中的`NSUserActivityTypes`明确定义。
 
 ### 事件：'browser-window-blur'
 返回：
+
 * `event` Event
 * `window` BrowserWindow
+
  **当[BrowserWindow](browser-window.md) 失去焦点的时候触发**
 
 ### 事件：'browser-window-focus'
 返回：
+
 * `event` Event
 * `window` BrowserWindow
+
  **当[BrowserWindow](browser-window.md) 获得焦点的时候触发**
 
 ### 事件：'browser-window-created'
 返回：
+
 * `event` Event
 * `window` BrowserWindow
+
  **当[BrowserWindow](browser-window.md) 被创建的时候触发**
 
 ### 事件: 'web-contents-created'
 返回：
+
 * `event` Event
 * `webContents` WebContents
+
  **在新的 [webContents](web-contents.md) 创建后触发**
 
 
 ### 事件：'certificate-error'
 返回：
+
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String - URL 地址
@@ -136,7 +178,9 @@ Electron 将会先尝试关闭所有的窗口再触发 `will-quit` 事件，在�
   * `isTrusted` Boolean - 是否信任这个证书
   
  **当对 `url` 验证 `certificate` 证书失败的时候触发**
+ 
 如果需要信任这个证书，你需要阻止默认行为 `event.preventDefault()` 并且调用 `callback(true)`。
+
 ```javascript
 const {app} = require('electron')
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
@@ -152,6 +196,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### 事件：'select-client-certificate'
 返回：
+
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String - URL 地址
@@ -160,9 +205,13 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
   * `issuerName` String - 发行者的公有名称
 * `callback` Function
   * `certificate` [Certificate](structures/certificate.md) (可选)
+  
  **当客户端认证被请求的时候被触发**
+ 
 `url` 指的是请求客户端认证的网页地址，调用 `callback` 时需要传入证书列表中的证书。
+
 需要通过调用 `event.preventDefault()` 来防止应用自动使用第一个证书进行验证。如下所示：
+
 ```javascript
 app.on('select-certificate', function (event, host, url, list, callback) {
   event.preventDefault()
@@ -172,6 +221,7 @@ app.on('select-certificate', function (event, host, url, list, callback) {
 
 ### 事件: 'login'
 返回：
+
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `request` Object
@@ -189,6 +239,7 @@ app.on('select-certificate', function (event, host, url, list, callback) {
   * `password` String
   
  **当 `webContents` 要做进行一次 HTTP 登陆验证时被触发**。
+ 
 默认情况下，Electron 会取消所有的验证行为，如果需要重写这个行为，你需要用 `event.preventDefault()` 来阻止默认行为，并且
 用 `callback(username, password)` 来进行验证。
 
@@ -202,28 +253,35 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### 事件：'gpu-process-crashed'
 返回:
+
 * `event` Event
 * `killed` Boolean
+
  **当 GPU 进程崩溃时触发**
 
 ### 事件: 'accessibility-support-changed' _macOS_ _Windows_
 返回:
+
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - 当启用Chrome的辅助功能时候为`true`, 其他情况为 `false`.
 
  **当 Chrome 的辅助功能状态改变时触发，比如屏幕阅读被启用或被禁用**
+ 
 [点此查看](https://www.chromium.org/developers/design-documents/accessibility) 更多详情.
 
 
 ## 方法列表
 
  `app`  对象拥有以下的方法：
+ 
 **请注意** 有的方法只能用于特定的操作系统，并被标注。
 
 ### `app.quit()`
 
  **试图关掉所有的窗口。**
+ 
  `before-quit` 事件将会最先被触发。如果所有的窗口都被成功关闭了，`will-quit` 事件将会被触发，默认下应用将会被关闭。
+ 
 这个方法保证了所有的 `beforeunload` 和 `unload` 事件处理器被正确执行。假如窗口的 `beforeunload` 事件处理器返回 `false`，那么整个应用可能会取消退出。
 
 ### `app.exit(exitCode)`
@@ -231,7 +289,9 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `exitCode` String
 
  **带着 `exitCode` 忽略 `before-quit` 和 `will-quit` 事件强制退出应用**
+ 
  所有的窗口会被立刻关闭，不会询问用户。
+ 
  `exitCode` 默认为0
  
 ### `app.relaunch([options])`
@@ -241,13 +301,18 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
   * `execPath` String (可选)
 
  **当前实例退出，重启应用**
+ 
 默认情况下，新的实例会和当前实例使用相同的工作目录以及命令行参数。指定 `args` 参数，
+
 `args` 将会被作为替换的命令行参数。指定 `execPath` 参数，`execPath` 将会作为执行的目录。
+
 记住，这个方法不会退出正在执行的应用。你需要在调用 `app.relaunch`方法后再执行 `app.quit`或者 `app.exit`
 来让应用重启。
+
 调用多次 `app.relaunch`方法，当前实例退出后多个实例会被启动。
 
 例子：立即重启当前实例并向新的实例添加新的命令行参数
+
 ```javascript
 const {app} = require('electron')
 
@@ -262,18 +327,24 @@ app.exit(0)
  **判断是否已初始化完成**
 
 ### `app.focus()`
+
  **聚焦首选窗口**
+ 
 * Linux或Windows中, 使应用的第一个窗口获取焦点.
+
 * macOS中, 让该应用成为活动应用程序。
 
 
 ### `app.hide()` _macOS_
+
  **隐藏所有的应用窗口，不是最小化**
 
 ### `app.show()` _macOS_
+
  **隐藏后重新显示所有的窗口，不会自动选中他们**
 
 ### `app.getAppPath()`
+
  **返回当前应用所在的文件路径**
 
 ### `app.getAppPath()`
@@ -287,8 +358,11 @@ app.exit(0)
 * `name` String
 
  **根据字符串查找指定路径**
+ 
 返回与 `name` 参数相关的特殊文件夹或文件路径。当失败时抛出`Error` 。
+
 你可以通过名称请求以下的路径：
+
 * `home` 用户的 home 文件夹(主目录)
 * `appData` 当前用户的应用数据文件夹，默认对应：
   * `%APPDATA%` Windows 中
@@ -313,11 +387,17 @@ app.exit(0)
 * `path` String
 
  **重写某个 `name` 的路径为 `path`**
+ 
  `path` 可以是文件夹或者文件，这个和 `name` 的类型有关。
+ 
 如果这个路径指向的文件夹不存在，这个文件夹将会被这个方法创建。
+
 如果错误则会抛出 `Error`。
+
 `name` 参数只能使用 `app.getPath` 中定义的 `name`。
+
 默认情况下，网页的 cookie 和缓存都会储存在 `userData` 文件夹。
+
 如果你想要改变这个位置，你需要在 `app` 模块中的 `ready` 事件被触发之前重写 `userData` 的路径。
 
 ### `app.getVersion()`
@@ -325,6 +405,7 @@ app.exit(0)
 返回 `String` 
 
  **返回加载应用程序的版本**
+ 
  如果应用程序的 `package.json` 文件中没有写版本号，将会返回当前包或者可执行文件的版本。
 
 ### `app.getName()`
@@ -332,8 +413,9 @@ app.exit(0)
 返回 `String` 
 
  **返回当前应用程序的 `package.json` 文件中的名称**。
-由于 npm 的命名规则，通常 `name` 字段是一个短的小写字符串。但是应用名的完整名称通常是首字母大写的，你应该单独使用一个
-`productName` 字段，用于表示你的应用程序的完整名称。Electron 会优先使用这个字段作为应用名。
+ 
+由于 npm 的命名规则，通常 `name` 字段是一个短的小写字符串。但是应用名的完整名称通常是首字母大写的，你应该单独使用一个 
+`productName` 字段，用于表示应用程序完整名称。Electron 会优先使用这个字段作为应用名。
 
 ### `app.setName(name)`
 
@@ -346,8 +428,11 @@ app.exit(0)
 返回 `String` 
 
  **返回当前应用程序的语言**
+ 
 点击[这里](locales.md) 查阅详情
+
  **注意：**当分发您的打包应用程序时，您还必须指定`locales`文件夹。
+ 
 **注意：**在Windows上，必须在`ready`事件发出后调用它。
 
 ### `app.addRecentDocument(path)`  _macOS_ _Windows_
@@ -355,6 +440,7 @@ app.exit(0)
 * `path` String
 
  **在最近访问的文档列表中添加 `path`**
+ 
 这个列表由操作系统进行管理。在 Windows 中您可以通过任务条进行访问，在 macOS 中你可以通过 dock 菜单进行访问。
 
 ### `app.clearRecentDocuments()` _macOS_ _Windows_
@@ -371,12 +457,19 @@ app.exit(0)
 返回 `Boolean` - 调用是否成功.
 
  **自定义协议格式并设置为默认处理程序**
+ 
 当前可执行程序设置为协议(亦称 URI scheme)的默认处理程序
-这允许您将应用程序更深入地集成到操作系统中. 一旦注册成功,
-所有 `your-protocol://` 格式的链接都会使用你的程序打开。整个链接(包括协议)将作为参数传递到应用程序中。
+
+这允许您将应用程序更深入地集成到操作系统中. 一旦注册成功,所有 `your-protocol://` 格式的链接都会使用你的程序打开。
+
+整个链接(包括协议)将作为参数传递到应用程序中。
+
 在Windows系统中，你可以提供可选参数path，到执行文件的地址；args,一个在启动时传递给可执行文件的参数数组
+
 **注意:** 在macOS上，您只能注册已添加到应用程序的`info.plist`的协议，该协议不能在运行时修改。 
+
 但是，您可以在构建时使用简单的文本编辑器或脚本更改文件。 有关详细信息，请参阅 [Apple's documentation][CFBundleURLTypes] 
+
 该API在内部使用Windows注册表和lssetdefaulthandlerforurlscheme。
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
@@ -388,6 +481,7 @@ app.exit(0)
 返回 `Boolean` - 调用是否成功.
 
  **移除协议与默认程序之间的关联**
+ 
 检查当前程序是否为协议(也称为URI scheme)的默认处理程序如果是，它会移除程序与协议的关联
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
@@ -397,12 +491,19 @@ app.exit(0)
 * `args` String[] (optional) _Windows_ - 默认为空数组
 
 返回 `Boolean`
+
  **是否为指定协议的默认程序**
+ 
 此方法检查当前程序是否为协议(也称为URI scheme)的默认处理程序。
+
 是则返回true 否则返回false
+
 **提示:** 在 macOS 系统中, 您可以使用此方法检查应用程序是否已注册为协议的默认处理程序。
+
 同时可以通过查看 `~/Library/Preferences/com.apple.LaunchServices.plist` 来确认。 
+
 有关详细信息，请参阅 [Apple's documentation][LSCopyDefaultHandlerForURLScheme] 。
+
 该API在内部使用Windows注册表和lssetdefaulthandlerforurlscheme。
 
 ### `app.setUserTasks(tasks)` _Windows_
@@ -410,6 +511,7 @@ app.exit(0)
 * `tasks` [Task](structures/task.md) - 一个由 Task 对象构成的数组
 
  **将 `tasks` 添加到 Windows 中 JumpList(跳转列表) 功能的 [Tasks][tasks] 分类中**
+ 
 `tasks` 中的 `Task` 对象格式如下：
 `Task` Object
 * `program` String - 执行程序的路径，通常你应该说明当前程序的路径为 `process.execPath` 字段。
@@ -420,6 +522,7 @@ app.exit(0)
 * `iconIndex` Integer - 图标文件中的采用的图标位置。如果一个图标文件包括了多个图标，就需要设置这个值以确定使用的是哪一个图标。
 如果这个图标文件中只包含一个图标，那么这个值为 0。
 返回 `Boolean` - 执行是否成功.
+
 **提示:** 如果希望更多的定制任务栏跳转列表，请使用 `app.setJumpList(categories)` 。
 
 ### `app.getJumpListSettings()` _Windows_
@@ -428,8 +531,10 @@ app.exit(0)
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量 (有关此值的更详细描述，请参阅
   [MSDN docs][JumpListBeginListMSDN]).
+  
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) -  `JumpListItem` 对象数组，对应用户在跳转列表中明确删除的项目。
 这些项目不能在 **接下来**调用 `app.setJumpList()` 时重新添加到跳转列表中,
+
 Windows不会显示任何包含已删除项目的自定义类别.
 
 ### `app.setJumpList(categories)` _Windows_
@@ -444,8 +549,7 @@ Windows不会显示任何包含已删除项目的自定义类别.
 * `fileTypeRegistrationError` - 尝试向自定义跳转列表添加一个文件链接，但是该应用未注册处理该应用类型。
 * `customCategoryAccessDeniedError` - 由于用户隐私或策略组设置，自定义类别无法添加到跳转列表。
 
-如果 `categories` 值为 `null` ，之前设定的自定义跳转列表(如果存在)将被替换为
-标准的应用跳转列表(由windows生成)
+如果 `categories` 值为 `null` ，之前设定的自定义跳转列表(如果存在)将被替换为标准的应用跳转列表(由windows生成)
 
 `JumpListCategory` 对象需要包含以下属性：
 
