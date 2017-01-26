@@ -1,10 +1,10 @@
-# 本文介绍:BrowserWindowProxy类
+# 本文介绍:BrowserWindowProxy类(子窗口的控制与应用)
 
 >操纵子窗口
 
-进程：[Renderer](../ glossary.md＃renderer-process)
+进程：[渲染进程](../ glossary.md＃renderer-process)        
 
-当在界面中使用 `window.open` 来创建一个新的窗口时候，将会创建一个 `BrowserWindowProxy`  的实例，并且将返回一个标识，这个界面通过标识来对这个新的窗口进行有限的控制.
+使用 `window.open` 创建一个新窗口时，会自动创建一个 `BrowserWindowProxy`  的实例将返回一个标识，可通过标识对这个新窗口进行少量功能的控制.
 
 ###实例方法
 
@@ -36,4 +36,4 @@ eval子窗口中的代码。
 `BrowserWindowProxy`对象具有以下实例属性：
 
 ####`win.closed`
-子窗口关闭后恢复设置为true的正常项。
+子窗口关闭后正常项恢复设置为true。

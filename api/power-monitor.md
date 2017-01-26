@@ -1,6 +1,6 @@
 # 本文介绍:powerMonitor类(监视电源状态)
 
->监视电源状态更改
+>电源状态更改时触发事件
 
 进程: [主进程](../glossary.md#main-process)     
 

@@ -1,7 +1,7 @@
-# 本文介绍:clipboard类
+# 本文介绍:clipboard类(复制与粘贴)
 > 复制与粘贴操作类
 
-进程: [主进程](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+进程: [主进程](../glossary.md#main-process), [渲染进程](../glossary.md#renderer-process)
 
 复制字符串例子:
 ```javascript

@@ -4,13 +4,10 @@
 进程: [Main](../glossary.md#main-process)
 
 ## 现有的项目
-- [nuts][nuts]: *A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
-- [electron-release-server][electron-release-server]: *A fully featured,
-  self-hosted release server for electron applications, compatible with
-  auto-updater*
-- [squirrel-updates-server][squirrel-updates-server]: *A simple node.js server
-  for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
-- [squirrel-release-server][squirrel-release-server]: *A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
+- [nuts][nuts]: * A smart release server for your applications, using GitHub as a backend. Auto-updates with Squirrel (Mac & Windows)*
+- [electron-release-server][electron-release-server]: * A fully featured, self-hosted release server for electron applications, compatible with auto-updater*
+- [squirrel-updates-server][squirrel-updates-server]: * A simple node.js server for Squirrel.Mac and Squirrel.Windows which uses GitHub releases*
+- [squirrel-release-server][squirrel-release-server]: * A simple PHP application for Squirrel.Windows which reads updates from a folder. Supports delta updates.*
 具体的请自行搜索.
 
 ## 平台相关的提示

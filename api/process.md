@@ -3,13 +3,13 @@
 > process 对象扩展。
 
 进程: [主进程](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
-Electron 的 `process` 对象是[Node.js `process` 对象](https://nodejs.org/api/process.html) 的扩展。
-它添加了以下事件, 属性和方法：
+Electron 的 `process` 对象是[Node.js `process` 对象](https://nodejs.org/api/process.html)    的扩展。
+
 
 ## 事件
 
 ### 事件: 'loaded'
-当Electron加载其内部预置脚本并开始加载网页或主脚本时触发。
+Electron加载其内部预置脚本并开始载入网页或主脚本时触发。
 
 当Node被完全关闭时，预置脚本可以使用 这个事件 把 原本已删除的Node全局符号 重新添加回 全局范围：
 ```javascript
@@ -25,10 +25,10 @@ process.once('loaded', () => {
 ## 属性
 
 ### `process.noAsar`
-设置为 `true` 可使 `asar` 在node的内置模块中失效。
+设置为 `true` ,可使 `asar` 在node的内置模块中失效。
 
 ### `process.type`
-当前 `process` 的类型，值为``browser`` (即主进程) 或 ``renderer``。
+当前 `process` 的类型，值为 ``browser`` (即主进程) 或 ``renderer``(即渲染进程)。
 
 ### `process.versions.electron`
 Electron的版本号。

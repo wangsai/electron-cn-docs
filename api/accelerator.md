@@ -48,11 +48,11 @@ Linux 和 Windows 下为 `Control` 键。
 * `Backspace`
 * `Delete`
 * `Insert`
-* `Return`(和 `Enter` 等同)
+* `Return`(等同 `Enter` )
 * `Up`,  `Down`,  `Left` 和 `Right`
 * `Home` 和 `End`
 * `PageUp` 和 `PageDown`
-* `Escape`(缩写为 `Esc`)
+* `Escape`(可缩写为 `Esc`)
 * `VolumeUp` ,  `VolumeDown`  和 `VolumeMute`
 * `MediaNextTrack` ,  `MediaPreviousTrack` ,  `MediaStop`  和   `MediaPlayPause`
 * `PrintScreen`

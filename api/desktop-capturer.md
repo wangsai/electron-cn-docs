@@ -39,31 +39,33 @@ function handleError (e) {
   console.log(e)
 }
 ```
+当使用这个方法的时候，不用指定 `chromeMediaSourceId`.
 
-当调用 `navigator.webkitGetUserMedia` 时创建一个约束对象，如果使用 `desktopCapturer` 的资源，必须设置 `chromeMediaSource` 为 ``desktop`` ，并且 `audio` 为 `false`.
+当调用 `navigator.webkitGetUserMedia` 时创建一个约束对象后.
 
-如果你想捕获整个桌面的 audio 和 video，你可以设置 `chromeMediaSource` 为 ``screen`` ，和 `audio` 为 `true`.
-当使用这个方法的时候，不可以指定一个 `chromeMediaSourceId`.
+如果你想使用 `desktopCapturer` 的资源，您必须设置 `chromeMediaSource` 为 ``desktop`` ， `audio` 为 ``false``.
+
+如果你想捕获整个桌面的 audio 和 video，您必须设置 `chromeMediaSource` 为 ``screen`` ， `audio` 为 ``true``.
+
 
 ## 方法
 
 ### `desktopCapturer.getSources(options, callback)`
 
 * `options` Object
-  * `types` String[] - 一个 String 数组，列出了可以捕获的桌面资源类型, 可用类型为 `screen` 和 `window`.
-  * `thumbnailSize` Object (optional) - 与缩放大小等比的缩图尺寸, 默认为 `{width: 150, height: 150}`.
+  * `types` String[] - 列出可捕获的桌面资源类型的String 数组, 可用类型为 `screen` 和 `window`.
+  * `thumbnailSize` Object (optional) - 等比缩放的缩图尺寸, 默认为 `{width: 150, height: 150}`.
 * `callback` Function
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
-发起一个请求，获取所有桌面资源，当请求完成的时候使用 `callback(error, sources)` 调用  `callback` .
+发起 获取所有桌面资源 的请求，请求完成后使用 `callback(error, sources)` 调用  `callback` .
 
- `sources` 是一个[`DesktopCapturerSource`](structures/desktop-capturer-source.md) 对象数组, 每个 `DesktopCapturerSource` 表示了一个捕获的屏幕或单独窗口并且有如下属性 :
-* `id` String - 在 `navigator.webkitGetUserMedia` 中使用的捕获窗口或屏幕的 id . 格式为 `window:XX` 祸
-  `screen:XX`，`XX` 是一个随机数.
+ `sources` 是一个[`DesktopCapturerSource`](structures/desktop-capturer-source.md) 对象数组, 每个 `DesktopCapturerSource` 表示了一个捕获的屏幕或窗口并且有如下属性 :
+* `id` String - 在 `navigator.webkitGetUserMedia` 中使用的捕获窗口或屏幕的 id . 格式为 `window:XX` 或者 `screen:XX`， `XX` 是一个随机数.
 * `name` String - 捕获窗口或屏幕的描述名 . 如果资源为屏幕，名字为 `Entire Screen` 或 `Screen <index>`; 如果资源为窗口, 名字为窗口的标题.
 * `thumbnail` [NativeImage](NativeImage.md) - 缩略图.
 
-**注意:** 不能保证 `source.thumbnail` 的 size 和 `options` 中的 `thumnbailSize` 一直一致. 它也取决于屏幕或窗口的缩放比例.
+**注意:** 不能保证 `source.thumbnail` 的 尺寸 和 `options` 中的 `thumnbailSize` 一直一致. 因为它也取决于屏幕或窗口的缩放比例.
 
 [`navigator.webkitGetUserMedia`]: https://developer.mozilla.org/en/docs/Web/API/Navigator/getUserMedia

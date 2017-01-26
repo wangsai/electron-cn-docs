@@ -1,15 +1,15 @@
 # 本文介绍:screen(检索屏幕信息)
 
 > `screen` 模块用于检索有关屏幕大小，显示，光标位置等的信息
-进程: [主进程](../glossary.md#main-process) 和 [渲染进程](../glossary.md#renderer-process)        
-**注意:** `app`模块的`ready`事件之后才能使用本模块.
+进程: [主进程](../glossary.md#main-process)     
+        [渲染进程](../glossary.md#renderer-process)      
+           
+ **注意:** `app`模块必须用在 `ready`事件后.
 
-`screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+ `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
- **注意:** 在渲染进程 / 开发者工具栏, `window.screen` 是一个预设值的 DOM
-属性, 所以这样写 `var screen = require('electron').screen` 将不会工作.
-在我们下面的例子, 我们取代使用可变名字的 `electronScreen`.
-一个例子，创建一个充满整个屏幕的窗口 :
+ **注意:** 在渲染进程 / 开发者工具栏, `window.screen` 是一个预设值的 DOM属性, 所以 `var screen = require('electron').screen` 这样写的话是无效的.
+创建全屏窗口的例子 :
 
 ```javascript
 const electron = require('electron')
@@ -24,8 +24,7 @@ app.on('ready', () => {
 })
 ```
 
-另一个例子，在此页外创建一个窗口:
-
+页面外部创建窗口的例子:
 ```javascript
 const electron = require('electron')
 const {app, BrowserWindow} = require('electron')
@@ -49,17 +48,20 @@ app.on('ready', () => {
 ```
 ## `Display` 对象
 
-`Display` 对象表示一个连接到系统的物理显示. 一个虚设的 `Display` 或许存在于一个无头系统(headless system)中，或者一个 `Display` 对应一个远程的, 虚拟的display.
-
+`Display`对象表示连接到系统的物理显示器。虚拟 `Display` 可以存在于无头系统上， `Display` 也可以是对应于远程的虚拟显示器。
 * `display` object
-  * `id` Integer - 与display 相关的唯一性标志.
-  * `rotation` Integer - 可以是 0, 1, 2, 3, 每个代表了屏幕旋转的度数 0, 90, 180, 270.
-  * `scaleFactor` Number - Output device's pixel scale factor.
-  * `touchSupport` String - 可以是 `available`, `unavailable`, `unknown`.
-  * `bounds` Object
+  * `id` Integer -  与显示相关联的唯一标识符。
+  * `rotation` Integer - 可选 `0`, `1`, `2`, `3`, 每个代表顺时针方向的屏幕旋转角度, 可选 `0`， `90`， `180`， `270`。
+  * `scaleFactor` Number -输出设备的像素比例因子。
+  * `touchSupport` String - 是否支持触摸,可选 `available`, `unavailable`, `unknown`.
+  * `bounds` Object [Rectangle](rectangle.md)
   * `size` Object
-  * `workArea` Object
+   * `height` Number
+   * `width` Number
+  *  `workArea` [Rectangle](rectangle.md)
   * `workAreaSize` Object
+   * `height` Number
+   * `width` Number
   
 ## 事件列表
 
@@ -69,13 +71,14 @@ app.on('ready', () => {
 返回:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
-`newDisplay` 被添加时触发.
+添加 `newDisplay` 时触发.
 
 ### 事件: 'display-removed'
 返回:
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
-移除`oldDisplay` 后触发
+
+移除`oldDisplay` 时触发
 
 ### 事件: 'display-metrics-changed'
 返回:
@@ -83,7 +86,8 @@ app.on('ready', () => {
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]  描述变化的字符串数组。
    可选 `bounds`， `workArea`， `scaleFactor`和 `rotation`。
-当一个 `display` 中的一个或更多的 metrics 更改时触发。
+   
+当更改 `display` 中的 单个或多个 metrics 时触发。
 
 
 
@@ -94,9 +98,11 @@ The `screen` 模块有如下方法:
 返回 `Object`:
 * `x` Integer
 * `y` Integer
+
 当前鼠标指针的绝对位置。
 
 ### `screen.getPrimaryDisplay()`
+
 返回 [`Display`](structures/display.md) - 主显示屏
 
 ### `screen.getAllDisplays()`

@@ -49,11 +49,11 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * `session` Boolean (可选) - 排除会话或持久cookie
 * `callback` Function
   * `error` Error
-  * `cookies` Cookies[]
+  * `cookies` Cookies[] - [`cookie`](structures/cookie.md) 对象的数组。
 
 发送请求以获取所有匹配 `details`的Cookie.
-当 `callback(error, cookies)` 完成后, `callback`将被调用
- `cookies`是一个[`cookie`](structures/cookie.md) 对象的数组。
+当 `callback(error, cookies)` 完成后调用 `callback`
+
 
 #### `cookies.set(details, callback)`
 
@@ -69,7 +69,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 * `callback` Function
   * `error` Error
   
-当 `callback(error)`完成后,用 `details`, `callback`设置一个cookie
+当 `callback(error)`完成后,用 `details`, `callback`设置cookie
 
 
 #### `cookies.remove(url, name, callback)`

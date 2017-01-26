@@ -1,4 +1,4 @@
-## 本文介绍: 菜单项的创建与修改
+## 本文介绍: MenuItem类(菜单项的创建与修改)
 
 > 在菜单中插入新的菜单项
 
@@ -9,7 +9,7 @@
 ### `new MenuItem(options)`
 
 * `options` Object
-  * `click` Function (可选) - 当菜单项被点击的时候，使用 `click(menuItem,browserWindow)` 调用
+  * `click` Function (可选) - 当菜单项被点击的时候，调用 `click(menuItem,browserWindow)` 
      * `menuItem` MenuItem
      * `browserWindow` BrowserWindow
      * `event` Event
@@ -21,12 +21,12 @@
   * `icon` ([NativeImage](native-image.md) | String) (可选)
   * `enabled` Boolean (可选) -如果为false，菜单项将显示为灰色且不可点击。
   * `visible` Boolean (可选) -如果为false，菜单项将完全隐藏。
-  * `checked` Boolean (可选) - 应该只为 `checkbox`或 `radio`类型菜单项指定。
+  * `checked` Boolean (可选) - 仅 `checkbox`或 `radio`类型菜单项才需要指定。
   * `submenu` (MenuItemConstructorOptions[] | Menu) (可选) - 应当作为 `submenu` 菜单项的特定类型，当它作为 `type: 'submenu'` 菜单项的特定类型时可以忽略。如果它的值不是 `Menu`，将自动转为 `Menu.buildFromTemplate`。
   * `id` String - 标志一个菜单的唯一性。如果被定义使用，它将被用作这个菜单项的参考位置属性。
   * `position` String - 定义给定的菜单的具体指定位置信息。
 
-在创建菜单项时，如果有匹配的方法，建议指定 `role` 属性，不需要人为操作它的行为，这样菜单使用可以给用户最好的体验。
+在创建菜单项时，如果有匹配的方法，建议指定 `role` 属性，想是不需要人为操作它的行为，这样菜单使用可以给用户最好的体验。
 当使用 `role`时， `label`和 `accelerator`是可选的，并且为每个平台使用适当的默认值。
 
  `role`属性值可以为：
@@ -45,11 +45,11 @@
 * `reload` -重新加载当前窗口
 * `toggledevtools`  - 在当前窗口中切换开发人员工具
 * `togglefullscreen`  - 在当前窗口切换全屏模式
-* `resetzoom`  - 将聚焦页面的缩放级别重置为原始大小
-* `zoomin`  - 放大聚焦的页面10％
-*` zoomout`  - 缩小聚焦页面10％
+* `resetzoom`  - 聚焦页缩放级别重置为原始大小
+* `zoomin`  - 聚焦页放大10％
+* ` zoomout`  - 聚焦页缩小10％
 
-在macOS上 `role`也可以有以下附加值：
+在 macOS 上 `role` 也可以有以下附加值：
 
 * `about`  - 映射到 `orderFrontStandardAboutPanel`动作
 * `hide`  - 映射到` hide`动作

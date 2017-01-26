@@ -1,6 +1,6 @@
 # 本文介绍:powerSaveBlocker类(阻止系统进入低功耗(睡眠)模式)
 
-> 有时候,我们需要应用在前后台无间断工作,并不需要系统睡眠.
+> 当需要应用在前后台无间断工作时,应避免系统进入睡眠.
 
 进程: [主进程](../glossary.md#main-process)     
 
@@ -14,13 +14,14 @@ powerSaveBlocker.stop(id)
 ```
 
 ## 方法
+
 `powerSaveBlocker` 模块有如下方法:
 
 ###`powerSaveBlocker.start(type)`
 
 * `type` String  - 节电模块类型。
-  * `prevent-app-suspension`  -  阻止应用挂起.保持系统活跃，但允许屏幕关闭。示例用例：下载文件或播放音频。
-  * `prevent-display-sleep`  - 防止显示器进入睡眠状态。保持系统和屏幕活动。示例用例：播放视频。
+  * `prevent-app-suspension`  -  阻止应用挂起.保持系统活跃，但允许屏幕关闭。如:下载文件或播放音频。
+  * `prevent-display-sleep`  - 防止显示器进入睡眠状态。保持系统和屏幕活动。如:播放视频。
 
 返回 `Integer`  - 开始阻止系统进入睡眠模式.返回一个整数，这个整数标识了保持活跃的blocker.
 

@@ -5,8 +5,7 @@
 
 `global-shortcut`模块可以便捷的为您设置(注册/注销)各种自定义操作的快捷键. 
 
- **注意:** 请在`ready`前注册快捷键,这种快捷键是全局性的. 
-
+ **注意:** 这种快捷键是全局性的,且需要在 `ready`前注册.
 ```javascript
 const {app, globalShortcut} = require('electron')
 
@@ -16,9 +15,7 @@ app.on('ready', () => {
     console.log('CommandOrControl+X is pressed')
   })
 
-  if (!ret) {
-    console.log('registration failed')
-  }
+  if (!ret) {console.log('registration failed')}
 
   // 检查快捷方式是否已注册。
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))

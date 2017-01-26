@@ -1,11 +1,10 @@
-# 本文介绍: Debugger类
+# 本文介绍: Debugger类(调试工具)
 
 > 一个Chrome的远程调试协议的替代传输。
 
-进程: [主进程](../glossary.md#main-process)
+进程: [主进程](../glossary.md#main-process)    
 
 JavaScript运行后,使用Chrome调试工具中的[special binding][rdp]与页面交互和检测它们.
-
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -35,13 +34,17 @@ win.webContents.debugger.sendCommand('Network.enable')
 ###实例方法
 
 #### `debugger.attach([protocolVersion])`
+
 * `protocolVersion`  String(可选) - 请求的调试协议版本。
+
 将调试器附加到`webContents'。
 
 #### `debugger.isAttached()`
+
 Returns `Boolean` - 调试器是否已附加到`webContents'。
 
 #### `debugger.detach()`
+
 从`webContents`里分离调试器。
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
@@ -59,7 +62,8 @@ Returns `Boolean` - 调试器是否已附加到`webContents'。
 #### 事件: 'detach'
 * `event` Event
 * `reason` String -分离调试器的原因。
-在`webContents`关闭或devtools被调用为附加的`webContents`时终止调试会话。
+
+在`webContents`关闭或`webContents`调用devtools时终止调试会话。
 
 
 

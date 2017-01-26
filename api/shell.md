@@ -1,6 +1,6 @@
 # 本文介绍:shell(使用默认应用程序管理文件和URL,如点击url时调用默认浏览器)
 
-> `shell`模块提供与桌面集成相关的功能
+> `shell`模块提供与 桌面集成 相关的功能
 
 进程: [主进程](../glossary.md#main-process)         , [Renderer](../glossary.md#renderer-process)
 

@@ -1,5 +1,5 @@
 # 本文介绍:环境变量
-> 不必更改代码的控制应用程序配置和行为。
+> 设置变量,可以不必更改代码的控制应用程序配置和行为。
 
 某些Electron行为由环境变量控制，因为它们比命令行和应用程序代码都更早地初始化。
 
@@ -19,20 +19,21 @@ Windows控制台示例：
 下面的环境变量主要用于应用运行时。
 
 ### `GOOGLE_API_KEY`
-Electron 的硬编码API密钥(包括提出请求谷歌的地理编码Web服务)。
-因为这个API密钥包含在Electron的每一个版本，它往往超过其使用配额。
+Electron 的硬编码API密钥(包括提出请求的谷歌地理编码Web服务)。
+因为这个API密钥包含在Electron的每一个版本，所以它往往超过其使用配额。
 要解决这个问题，您可以提供自己的谷歌API密钥至环境中。
 在你的主进程文件引入下面的代码，地址解析请求之前可打开任何浏览器窗口：
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
-有关如何获取谷歌API密钥的说明，请访问：[此页](https://www.chromium.org/developers/how-tos/api-keys)。通过默认情况下，新生成的谷歌API密钥可能不允许进行地址解析请求。要启用地址解析请求，请访问：[此页](https://console.developers.google.com/apis/api/geolocation/overview)。
+有关如何获取谷歌API密钥的说明，请访问：[此页](https://www.chromium.org/developers/how-tos/api-keys)。   
+默认情况下，新生成的谷歌API密钥可能不允许进行地址解析请求。要启用地址解析请求，请访问：[此页](https://console.developers.google.com/apis/api/geolocation/overview)。   
 
 ### `ELECTRON_NO_ASAR`
 禁用ASAR支持。这个变量只有在设置 `ELECTRON_RUN_AS_NODE`派生的子进程并催生子进程的支持。
 
 ### `ELECTRON_RUN_AS_NODE`
-普通的Node.js启动进程
+像Node.js一样启动进程
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` _Windows_
 不要附加到当前控制台会话。

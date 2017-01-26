@@ -4,7 +4,7 @@
 * `rotation`Number -顺时针方向的屏幕旋转角度, 可选`0`，`90`，`180`，`270`。
 * `scaleFactor` Number  - 输出设备的像素比例因子。
 * `touchSupport` String - 是否支持触摸,可选 `available`, `unavailable`, `unknown`.
-* `bounds` [Rectangle](rectangle.md)
+* `bounds` Object [Rectangle](rectangle.md)
 * `size` Object
   * `height` Number
   * `width` Number
